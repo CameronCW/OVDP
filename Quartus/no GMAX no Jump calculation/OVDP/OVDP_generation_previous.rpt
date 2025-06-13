@@ -1,0 +1,78 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate F:\Imperial\Desktop\OVDPFPGA\OVDP.qsys --block-symbol-file --output-directory=F:\Imperial\Desktop\OVDPFPGA\OVDP --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading OVDPFPGA/OVDP.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 20.1]
+Progress: Parameterizing module altpll_0
+Progress: Adding channel_processor_top_0 [channel_processor_top 1.0]
+Progress: Parameterizing module channel_processor_top_0
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding i2s_tx_0 [i2s_tx 1.0]
+Progress: Parameterizing module i2s_tx_0
+Progress: Adding output_conversion_0 [output_conversion 1.0]
+Progress: Parameterizing module output_conversion_0
+Progress: Adding pid_focus_0 [pid_focus_controller 1.0]
+Progress: Parameterizing module pid_focus_0
+Progress: Adding preProcess_block_0 [preProcess_block 1.0]
+Progress: Parameterizing module preProcess_block_0
+Progress: Adding sig_extract_0 [sig_extract 1.0]
+Progress: Parameterizing module sig_extract_0
+Progress: Adding spi_command_decoder_0 [spi_command_decoder 1.0]
+Progress: Parameterizing module spi_command_decoder_0
+Progress: Adding spislave_0 [spislave 20.1]
+Progress: Parameterizing module spislave_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: OVDP.spislave_0.avalon_streaming_source/spi_command_decoder_0.avalon_streaming_sink: The source has a ready signal of 1 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate F:\Imperial\Desktop\OVDPFPGA\OVDP.qsys --synthesis=VERILOG --output-directory=F:\Imperial\Desktop\OVDPFPGA\OVDP\synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading OVDPFPGA/OVDP.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 20.1]
+Progress: Parameterizing module altpll_0
+Progress: Adding channel_processor_top_0 [channel_processor_top 1.0]
+Progress: Parameterizing module channel_processor_top_0
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding i2s_tx_0 [i2s_tx 1.0]
+Progress: Parameterizing module i2s_tx_0
+Progress: Adding output_conversion_0 [output_conversion 1.0]
+Progress: Parameterizing module output_conversion_0
+Progress: Adding pid_focus_0 [pid_focus_controller 1.0]
+Progress: Parameterizing module pid_focus_0
+Progress: Adding preProcess_block_0 [preProcess_block 1.0]
+Progress: Parameterizing module preProcess_block_0
+Progress: Adding sig_extract_0 [sig_extract 1.0]
+Progress: Parameterizing module sig_extract_0
+Progress: Adding spi_command_decoder_0 [spi_command_decoder 1.0]
+Progress: Parameterizing module spi_command_decoder_0
+Progress: Adding spislave_0 [spislave 20.1]
+Progress: Parameterizing module spislave_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: OVDP.spislave_0.avalon_streaming_source/spi_command_decoder_0.avalon_streaming_sink: The source has a ready signal of 1 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Info: OVDP: Generating OVDP "OVDP" for QUARTUS_SYNTH
+Info: avalon_st_adapter: Inserting timing_adapter: timing_adapter_0
+Info: altpll_0: "OVDP" instantiated altpll "altpll_0"
+Info: channel_processor_top_0: "OVDP" instantiated channel_processor_top "channel_processor_top_0"
+Info: i2s_tx_0: "OVDP" instantiated i2s_tx "i2s_tx_0"
+Info: output_conversion_0: "OVDP" instantiated output_conversion "output_conversion_0"
+Info: pid_focus_0: "OVDP" instantiated pid_focus_controller "pid_focus_0"
+Info: preProcess_block_0: "OVDP" instantiated preProcess_block "preProcess_block_0"
+Info: sig_extract_0: "OVDP" instantiated sig_extract "sig_extract_0"
+Info: spi_command_decoder_0: "OVDP" instantiated spi_command_decoder "spi_command_decoder_0"
+Info: spislave_0: "OVDP" instantiated spislave "spislave_0"
+Info: avalon_st_adapter: "OVDP" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: rst_controller: "OVDP" instantiated altera_reset_controller "rst_controller"
+Info: timing_adapter_0: "avalon_st_adapter" instantiated timing_adapter "timing_adapter_0"
+Info: OVDP: Done "OVDP" with 13 modules, 15 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

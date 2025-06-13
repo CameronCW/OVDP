@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "spislave_avalon_streaming_sink_ready",
+					"strict" : false
+				},
+				{
+					"name" : "pid_focus_pwm_out_export[0]",
+					"strict" : false
+				},
+				{
+					"name" : "i2s_tx_bclk_export",
+					"strict" : false
+				},
+				{
+					"name" : "i2s_tx_lrclk_export",
+					"strict" : false
+				},
+				{
+					"name" : "i2s_tx_sdata_export",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_export_miso",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_valid",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_avalon_streaming_sink_data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset_reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_export_nss",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_export_sclk",
+					"strict" : false
+				},
+				{
+					"name" : "spislave_export_mosi",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

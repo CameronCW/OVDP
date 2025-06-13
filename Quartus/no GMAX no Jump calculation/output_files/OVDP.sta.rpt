@@ -1,0 +1,971 @@
+Timing Analyzer report for OVDP
+Fri Jun 06 20:07:54 2025
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 1100mV 85C Model Fmax Summary
+  7. Timing Closure Recommendations
+  8. Slow 1100mV 85C Model Setup Summary
+  9. Slow 1100mV 85C Model Hold Summary
+ 10. Slow 1100mV 85C Model Recovery Summary
+ 11. Slow 1100mV 85C Model Removal Summary
+ 12. Slow 1100mV 85C Model Minimum Pulse Width Summary
+ 13. Slow 1100mV 85C Model Metastability Summary
+ 14. Slow 1100mV 0C Model Fmax Summary
+ 15. Slow 1100mV 0C Model Setup Summary
+ 16. Slow 1100mV 0C Model Hold Summary
+ 17. Slow 1100mV 0C Model Recovery Summary
+ 18. Slow 1100mV 0C Model Removal Summary
+ 19. Slow 1100mV 0C Model Minimum Pulse Width Summary
+ 20. Slow 1100mV 0C Model Metastability Summary
+ 21. Fast 1100mV 85C Model Setup Summary
+ 22. Fast 1100mV 85C Model Hold Summary
+ 23. Fast 1100mV 85C Model Recovery Summary
+ 24. Fast 1100mV 85C Model Removal Summary
+ 25. Fast 1100mV 85C Model Minimum Pulse Width Summary
+ 26. Fast 1100mV 85C Model Metastability Summary
+ 27. Fast 1100mV 0C Model Setup Summary
+ 28. Fast 1100mV 0C Model Hold Summary
+ 29. Fast 1100mV 0C Model Recovery Summary
+ 30. Fast 1100mV 0C Model Removal Summary
+ 31. Fast 1100mV 0C Model Minimum Pulse Width Summary
+ 32. Fast 1100mV 0C Model Metastability Summary
+ 33. Multicorner Timing Analysis Summary
+ 34. Board Trace Model Assignments
+ 35. Input Transition Times
+ 36. Signal Integrity Metrics (Slow 1100mv 0c Model)
+ 37. Signal Integrity Metrics (Slow 1100mv 85c Model)
+ 38. Signal Integrity Metrics (Fast 1100mv 0c Model)
+ 39. Signal Integrity Metrics (Fast 1100mv 85c Model)
+ 40. Setup Transfers
+ 41. Hold Transfers
+ 42. Recovery Transfers
+ 43. Removal Transfers
+ 44. Report TCCS
+ 45. Report RSKM
+ 46. Unconstrained Paths Summary
+ 47. Clock Status Summary
+ 48. Unconstrained Input Ports
+ 49. Unconstrained Output Ports
+ 50. Unconstrained Input Ports
+ 51. Unconstrained Output Ports
+ 52. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; OVDP                                                ;
+; Device Family         ; Cyclone V                                           ;
+; Device Name           ; 5CSEMA5F31C6                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.97        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   7.2%      ;
+;     Processor 3            ;   6.9%      ;
+;     Processor 4            ;   6.8%      ;
+;     Processor 5            ;   6.4%      ;
+;     Processor 6            ;   6.4%      ;
+;     Processor 7            ;   6.4%      ;
+;     Processor 8            ;   6.4%      ;
+;     Processor 9            ;   6.4%      ;
+;     Processor 10           ;   6.4%      ;
+;     Processor 11           ;   6.4%      ;
+;     Processor 12           ;   6.4%      ;
+;     Processor 13           ;   6.3%      ;
+;     Processor 14           ;   6.3%      ;
+;     Processor 15           ;   6.3%      ;
+;     Processor 16           ;   6.3%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------+
+; SDC File List                                                                             ;
++-------------------------------------------------------+--------+--------------------------+
+; SDC File Path                                         ; Status ; Read at                  ;
++-------------------------------------------------------+--------+--------------------------+
+; OVDP/synthesis/submodules/altera_reset_controller.sdc ; OK     ; Fri Jun 06 20:07:50 2025 ;
++-------------------------------------------------------+--------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
++--------------------------------------------------------------------------+-----------+---------+------------+-------+---------+------------+-----------+-------------+-------+--------+-----------+------------+----------+------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------+
+; Clock Name                                                               ; Type      ; Period  ; Frequency  ; Rise  ; Fall    ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                 ; Source                                                                      ; Targets                                                                      ;
++--------------------------------------------------------------------------+-----------+---------+------------+-------+---------+------------+-----------+-------------+-------+--------+-----------+------------+----------+------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------+
+; clk_clk                                                                  ; Base      ; 10.000  ; 100.0 MHz  ; 0.000 ; 5.000   ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                        ;                                                                             ; { clk_clk }                                                                  ;
+; synchronizer:sync_sclk|sync_reg2                                         ; Base      ; 1.000   ; 1000.0 MHz ; 0.000 ; 0.500   ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                        ;                                                                             ; { synchronizer:sync_sclk|sync_reg2 }                                         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; Generated ; 3.333   ; 300.0 MHz  ; 0.000 ; 1.666   ; 50.00      ; 2         ; 6           ;       ;        ;           ;            ; false    ; clk_clk                                                                ; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin      ; { system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }   ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; Generated ; 200.000 ; 5.0 MHz    ; 0.000 ; 100.000 ; 50.00      ; 60        ; 1           ;       ;        ;           ;            ; false    ; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0] ; { system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk } ;
++--------------------------------------------------------------------------+-----------+---------+------------+-------+---------+------------+-----------+-------------+-------+--------+-----------+------------+----------+------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Fmax Summary                                                                             ;
++------------+-----------------+--------------------------------------------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                                                               ; Note ;
++------------+-----------------+--------------------------------------------------------------------------+------+
+; 52.18 MHz  ; 52.18 MHz       ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 120.53 MHz ; 120.53 MHz      ; clk_clk                                                                  ;      ;
+; 393.24 MHz ; 393.24 MHz      ; synchronizer:sync_sclk|sync_reg2                                         ;      ;
++------------+-----------------+--------------------------------------------------------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Setup Summary                                                               ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -4.089 ; -66.057       ;
+; clk_clk                                                                  ; 1.703  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 2.954  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Hold Summary                                                                ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -4.375 ; -85.458       ;
+; clk_clk                                                                  ; 0.224  ; 0.000         ;
+; synchronizer:sync_sclk|sync_reg2                                         ; 0.433  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Recovery Summary                                                            ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -4.523 ; -185.138      ;
+; clk_clk                                                                  ; 0.578  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 2.890  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Removal Summary                                                            ;
++--------------------------------------------------------------------------+-------+---------------+
+; Clock                                                                    ; Slack ; End Point TNS ;
++--------------------------------------------------------------------------+-------+---------------+
+; clk_clk                                                                  ; 0.560 ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1.145 ; 0.000         ;
+; synchronizer:sync_sclk|sync_reg2                                         ; 2.869 ; 0.000         ;
++--------------------------------------------------------------------------+-------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Minimum Pulse Width Summary                                                 ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -0.394 ; -24.883       ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
+; clk_clk                                                                  ; 3.870  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 99.307 ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
+-----------------------------------------------
+; Slow 1100mV 85C Model Metastability Summary ;
+-----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Slow 1100mV 0C Model Fmax Summary                                                                              ;
++------------+-----------------+--------------------------------------------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                                                               ; Note ;
++------------+-----------------+--------------------------------------------------------------------------+------+
+; 51.74 MHz  ; 51.74 MHz       ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 120.26 MHz ; 120.26 MHz      ; clk_clk                                                                  ;      ;
+; 402.74 MHz ; 402.74 MHz      ; synchronizer:sync_sclk|sync_reg2                                         ;      ;
++------------+-----------------+--------------------------------------------------------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow 1100mV 0C Model Setup Summary                                                                ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -4.189 ; -64.234       ;
+; clk_clk                                                                  ; 1.685  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3.372  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow 1100mV 0C Model Hold Summary                                                                 ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -4.294 ; -83.915       ;
+; clk_clk                                                                  ; 0.211  ; 0.000         ;
+; synchronizer:sync_sclk|sync_reg2                                         ; 0.456  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow 1100mV 0C Model Recovery Summary                                                             ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -4.545 ; -187.757      ;
+; clk_clk                                                                  ; 1.018  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3.360  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Slow 1100mV 0C Model Removal Summary                                                             ;
++--------------------------------------------------------------------------+-------+---------------+
+; Clock                                                                    ; Slack ; End Point TNS ;
++--------------------------------------------------------------------------+-------+---------------+
+; clk_clk                                                                  ; 0.514 ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.817 ; 0.000         ;
+; synchronizer:sync_sclk|sync_reg2                                         ; 2.970 ; 0.000         ;
++--------------------------------------------------------------------------+-------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow 1100mV 0C Model Minimum Pulse Width Summary                                                  ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -0.394 ; -25.069       ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
+; clk_clk                                                                  ; 3.823  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 99.252 ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
+----------------------------------------------
+; Slow 1100mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast 1100mV 85C Model Setup Summary                                                               ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -2.252 ; -27.688       ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 4.363  ; 0.000         ;
+; clk_clk                                                                  ; 5.067  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast 1100mV 85C Model Hold Summary                                                                ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -2.524 ; -49.233       ;
+; clk_clk                                                                  ; 0.134  ; 0.000         ;
+; synchronizer:sync_sclk|sync_reg2                                         ; 0.262  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast 1100mV 85C Model Recovery Summary                                                            ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -2.460 ; -96.176       ;
+; clk_clk                                                                  ; 3.294  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 4.599  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Fast 1100mV 85C Model Removal Summary                                                            ;
++--------------------------------------------------------------------------+-------+---------------+
+; Clock                                                                    ; Slack ; End Point TNS ;
++--------------------------------------------------------------------------+-------+---------------+
+; clk_clk                                                                  ; 0.294 ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1.022 ; 0.000         ;
+; synchronizer:sync_sclk|sync_reg2                                         ; 1.419 ; 0.000         ;
++--------------------------------------------------------------------------+-------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast 1100mV 85C Model Minimum Pulse Width Summary                                                 ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; 0.139  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
+; clk_clk                                                                  ; 3.790  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 99.553 ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
+-----------------------------------------------
+; Fast 1100mV 85C Model Metastability Summary ;
+-----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast 1100mV 0C Model Setup Summary                                                                ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -2.180 ; -23.297       ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 5.289  ; 0.000         ;
+; clk_clk                                                                  ; 5.369  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast 1100mV 0C Model Hold Summary                                                                 ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; -2.481 ; -48.601       ;
+; clk_clk                                                                  ; 0.125  ; 0.000         ;
+; synchronizer:sync_sclk|sync_reg2                                         ; 0.252  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast 1100mV 0C Model Recovery Summary                                                             ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; -2.350 ; -92.692       ;
+; clk_clk                                                                  ; 4.135  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 5.473  ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Fast 1100mV 0C Model Removal Summary                                                             ;
++--------------------------------------------------------------------------+-------+---------------+
+; Clock                                                                    ; Slack ; End Point TNS ;
++--------------------------------------------------------------------------+-------+---------------+
+; clk_clk                                                                  ; 0.264 ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.668 ; 0.000         ;
+; synchronizer:sync_sclk|sync_reg2                                         ; 1.395 ; 0.000         ;
++--------------------------------------------------------------------------+-------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast 1100mV 0C Model Minimum Pulse Width Summary                                                  ;
++--------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                    ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------+--------+---------------+
+; synchronizer:sync_sclk|sync_reg2                                         ; 0.139  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.666  ; 0.000         ;
+; clk_clk                                                                  ; 3.783  ; 0.000         ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 99.542 ; 0.000         ;
++--------------------------------------------------------------------------+--------+---------------+
+
+
+----------------------------------------------
+; Fast 1100mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                                                      ;
++---------------------------------------------------------------------------+---------+---------+----------+---------+---------------------+
+; Clock                                                                     ; Setup   ; Hold    ; Recovery ; Removal ; Minimum Pulse Width ;
++---------------------------------------------------------------------------+---------+---------+----------+---------+---------------------+
+; Worst-case Slack                                                          ; -4.189  ; -4.375  ; -4.545   ; 0.264   ; -0.394              ;
+;  clk_clk                                                                  ; 1.685   ; 0.125   ; 0.578    ; 0.264   ; 3.783               ;
+;  synchronizer:sync_sclk|sync_reg2                                         ; -4.189  ; 0.252   ; -4.545   ; 1.395   ; -0.394              ;
+;  system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A     ; N/A     ; N/A      ; N/A     ; 1.666               ;
+;  system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 2.954   ; -4.375  ; 2.890    ; 0.668   ; 99.252              ;
+; Design-wide TNS                                                           ; -66.057 ; -85.458 ; -187.757 ; 0.0     ; -25.069             ;
+;  clk_clk                                                                  ; 0.000   ; 0.000   ; 0.000    ; 0.000   ; 0.000               ;
+;  synchronizer:sync_sclk|sync_reg2                                         ; -66.057 ; 0.000   ; -187.757 ; 0.000   ; -25.069             ;
+;  system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A     ; N/A     ; N/A      ; N/A     ; 0.000               ;
+;  system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.000   ; -85.458 ; 0.000    ; 0.000   ; 0.000               ;
++---------------------------------------------------------------------------+---------+---------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                                           ;
++--------------------------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin                                  ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++--------------------------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; spislave_avalon_streaming_sink_ready ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pid_focus_pwm_out_export[0]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pid_focus_pwm_out_export[1]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pid_focus_pwm_out_export[2]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pid_focus_pwm_out_export[3]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pid_focus_pwm_out_export[4]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pid_focus_pwm_out_export[5]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pid_focus_pwm_out_export[6]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pid_focus_pwm_out_export[7]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; i2s_tx_bclk_export                   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; i2s_tx_lrclk_export                  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; i2s_tx_sdata_export                  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; spislave_export_miso                 ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++--------------------------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Input Transition Times                                                                    ;
++----------------------------------------+--------------+-----------------+-----------------+
+; Pin                                    ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++----------------------------------------+--------------+-----------------+-----------------+
+; preprocess_block_lsync_export          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; preprocess_block_rsync_export          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; preprocess_block_sig_export            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_export_miso                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_valid   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_data[0] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_data[1] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_data[2] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_data[3] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_data[4] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_data[5] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_data[6] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_avalon_streaming_sink_data[7] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk_clk                                ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; reset_reset_n                          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_export_nss                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_export_sclk                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; spislave_export_mosi                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++----------------------------------------+--------------+-----------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1100mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                                  ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; spislave_avalon_streaming_sink_ready ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-07 V                   ; 2.36 V              ; -0.0231 V           ; 0.14 V                               ; 0.089 V                              ; 4.52e-10 s                  ; 4.35e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.07e-07 V                  ; 2.36 V             ; -0.0231 V          ; 0.14 V                              ; 0.089 V                             ; 4.52e-10 s                 ; 4.35e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[0]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.6e-07 V                    ; 2.41 V              ; -0.0463 V           ; 0.201 V                              ; 0.131 V                              ; 4.61e-10 s                  ; 4.53e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.6e-07 V                   ; 2.41 V             ; -0.0463 V          ; 0.201 V                             ; 0.131 V                             ; 4.61e-10 s                 ; 4.53e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[1]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-07 V                   ; 2.36 V              ; -0.0231 V           ; 0.14 V                               ; 0.089 V                              ; 4.52e-10 s                  ; 4.35e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.07e-07 V                  ; 2.36 V             ; -0.0231 V          ; 0.14 V                              ; 0.089 V                             ; 4.52e-10 s                 ; 4.35e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[2]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0557 V           ; 0.175 V                              ; 0.114 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0557 V          ; 0.175 V                             ; 0.114 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[3]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0568 V           ; 0.173 V                              ; 0.113 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0568 V          ; 0.173 V                             ; 0.113 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[4]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.6e-07 V                    ; 2.41 V              ; -0.0463 V           ; 0.201 V                              ; 0.131 V                              ; 4.61e-10 s                  ; 4.53e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.6e-07 V                   ; 2.41 V             ; -0.0463 V          ; 0.201 V                             ; 0.131 V                             ; 4.61e-10 s                 ; 4.53e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[5]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-07 V                   ; 2.36 V              ; -0.0231 V           ; 0.14 V                               ; 0.089 V                              ; 4.52e-10 s                  ; 4.35e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.07e-07 V                  ; 2.36 V             ; -0.0231 V          ; 0.14 V                              ; 0.089 V                             ; 4.52e-10 s                 ; 4.35e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[6]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0568 V           ; 0.173 V                              ; 0.113 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0568 V          ; 0.173 V                             ; 0.113 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[7]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0557 V           ; 0.175 V                              ; 0.114 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0557 V          ; 0.175 V                             ; 0.114 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
+; i2s_tx_bclk_export                   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0568 V           ; 0.173 V                              ; 0.113 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0568 V          ; 0.173 V                             ; 0.113 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
+; i2s_tx_lrclk_export                  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0568 V           ; 0.173 V                              ; 0.113 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0568 V          ; 0.173 V                             ; 0.113 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
+; i2s_tx_sdata_export                  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-07 V                   ; 2.36 V              ; -0.0231 V           ; 0.14 V                               ; 0.089 V                              ; 4.52e-10 s                  ; 4.35e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.07e-07 V                  ; 2.36 V             ; -0.0231 V          ; 0.14 V                              ; 0.089 V                             ; 4.52e-10 s                 ; 4.35e-10 s                 ; No                        ; Yes                       ;
+; spislave_export_miso                 ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0568 V           ; 0.173 V                              ; 0.113 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0568 V          ; 0.173 V                             ; 0.113 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1100mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                                  ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; spislave_avalon_streaming_sink_ready ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.49e-05 V                   ; 2.34 V              ; -0.0118 V           ; 0.182 V                              ; 0.051 V                              ; 4.81e-10 s                  ; 4.83e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.49e-05 V                  ; 2.34 V             ; -0.0118 V          ; 0.182 V                             ; 0.051 V                             ; 4.81e-10 s                 ; 4.83e-10 s                 ; Yes                       ; Yes                       ;
+; pid_focus_pwm_out_export[0]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.96e-05 V                   ; 2.38 V              ; -0.0306 V           ; 0.23 V                               ; 0.206 V                              ; 4.83e-10 s                  ; 5.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.96e-05 V                  ; 2.38 V             ; -0.0306 V          ; 0.23 V                              ; 0.206 V                             ; 4.83e-10 s                 ; 5.01e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[1]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.49e-05 V                   ; 2.34 V              ; -0.0118 V           ; 0.182 V                              ; 0.051 V                              ; 4.81e-10 s                  ; 4.83e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.49e-05 V                  ; 2.34 V             ; -0.0118 V          ; 0.182 V                             ; 0.051 V                             ; 4.81e-10 s                 ; 4.83e-10 s                 ; Yes                       ; Yes                       ;
+; pid_focus_pwm_out_export[2]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.037 V            ; 0.188 V                              ; 0.158 V                              ; 4.67e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.037 V           ; 0.188 V                             ; 0.158 V                             ; 4.67e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[3]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.0374 V           ; 0.189 V                              ; 0.158 V                              ; 4.66e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.0374 V          ; 0.189 V                             ; 0.158 V                             ; 4.66e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[4]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.96e-05 V                   ; 2.38 V              ; -0.0306 V           ; 0.23 V                               ; 0.206 V                              ; 4.83e-10 s                  ; 5.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.96e-05 V                  ; 2.38 V             ; -0.0306 V          ; 0.23 V                              ; 0.206 V                             ; 4.83e-10 s                 ; 5.01e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[5]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.49e-05 V                   ; 2.34 V              ; -0.0118 V           ; 0.182 V                              ; 0.051 V                              ; 4.81e-10 s                  ; 4.83e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.49e-05 V                  ; 2.34 V             ; -0.0118 V          ; 0.182 V                             ; 0.051 V                             ; 4.81e-10 s                 ; 4.83e-10 s                 ; Yes                       ; Yes                       ;
+; pid_focus_pwm_out_export[6]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.0374 V           ; 0.189 V                              ; 0.158 V                              ; 4.66e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.0374 V          ; 0.189 V                             ; 0.158 V                             ; 4.66e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[7]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.037 V            ; 0.188 V                              ; 0.158 V                              ; 4.67e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.037 V           ; 0.188 V                             ; 0.158 V                             ; 4.67e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
+; i2s_tx_bclk_export                   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.0374 V           ; 0.189 V                              ; 0.158 V                              ; 4.66e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.0374 V          ; 0.189 V                             ; 0.158 V                             ; 4.66e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
+; i2s_tx_lrclk_export                  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.0374 V           ; 0.189 V                              ; 0.158 V                              ; 4.66e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.0374 V          ; 0.189 V                             ; 0.158 V                             ; 4.66e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
+; i2s_tx_sdata_export                  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.49e-05 V                   ; 2.34 V              ; -0.0118 V           ; 0.182 V                              ; 0.051 V                              ; 4.81e-10 s                  ; 4.83e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.49e-05 V                  ; 2.34 V             ; -0.0118 V          ; 0.182 V                             ; 0.051 V                             ; 4.81e-10 s                 ; 4.83e-10 s                 ; Yes                       ; Yes                       ;
+; spislave_export_miso                 ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.0374 V           ; 0.189 V                              ; 0.158 V                              ; 4.66e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.0374 V          ; 0.189 V                             ; 0.158 V                             ; 4.66e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1100mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                                  ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; spislave_avalon_streaming_sink_ready ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[0]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[1]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[2]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; pid_focus_pwm_out_export[3]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; pid_focus_pwm_out_export[4]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[5]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[6]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; pid_focus_pwm_out_export[7]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; i2s_tx_bclk_export                   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; i2s_tx_lrclk_export                  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; i2s_tx_sdata_export                  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
+; spislave_export_miso                 ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1100mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                                  ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; spislave_avalon_streaming_sink_ready ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[0]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[1]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[2]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[3]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[4]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[5]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; pid_focus_pwm_out_export[6]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; pid_focus_pwm_out_export[7]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; i2s_tx_bclk_export                   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; i2s_tx_lrclk_export                  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; i2s_tx_sdata_export                  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; spislave_export_miso                 ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
++--------------------------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                                                                                                  ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+----------+----------+----------+
+; From Clock                                                               ; To Clock                                                                 ; RR Paths  ; FR Paths ; RF Paths ; FF Paths ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+----------+----------+----------+
+; clk_clk                                                                  ; clk_clk                                                                  ; 30712     ; 0        ; 0        ; 0        ;
+; synchronizer:sync_sclk|sync_reg2                                         ; clk_clk                                                                  ; 1         ; 31       ; 0        ; 0        ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_clk                                                                  ; 8         ; 0        ; 0        ; 0        ;
+; clk_clk                                                                  ; synchronizer:sync_sclk|sync_reg2                                         ; 9         ; 0        ; 3        ; 0        ;
+; synchronizer:sync_sclk|sync_reg2                                         ; synchronizer:sync_sclk|sync_reg2                                         ; 50        ; 0        ; 0        ; 74       ;
+; clk_clk                                                                  ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 80        ; 0        ; 0        ; 0        ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 906820722 ; 0        ; 0        ; 0        ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                                                                                                   ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+----------+----------+----------+
+; From Clock                                                               ; To Clock                                                                 ; RR Paths  ; FR Paths ; RF Paths ; FF Paths ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+----------+----------+----------+
+; clk_clk                                                                  ; clk_clk                                                                  ; 30712     ; 0        ; 0        ; 0        ;
+; synchronizer:sync_sclk|sync_reg2                                         ; clk_clk                                                                  ; 1         ; 31       ; 0        ; 0        ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_clk                                                                  ; 8         ; 0        ; 0        ; 0        ;
+; clk_clk                                                                  ; synchronizer:sync_sclk|sync_reg2                                         ; 9         ; 0        ; 3        ; 0        ;
+; synchronizer:sync_sclk|sync_reg2                                         ; synchronizer:sync_sclk|sync_reg2                                         ; 50        ; 0        ; 0        ; 74       ;
+; clk_clk                                                                  ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 80        ; 0        ; 0        ; 0        ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 906820722 ; 0        ; 0        ; 0        ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Recovery Transfers                                                                                                                ;
++------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
+; From Clock ; To Clock                                                                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
+; clk_clk    ; clk_clk                                                                  ; 165      ; 0        ; 0        ; 0        ;
+; clk_clk    ; synchronizer:sync_sclk|sync_reg2                                         ; 36       ; 0        ; 47       ; 0        ;
+; clk_clk    ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 281      ; 0        ; 0        ; 0        ;
++------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Removal Transfers                                                                                                                 ;
++------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
+; From Clock ; To Clock                                                                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
+; clk_clk    ; clk_clk                                                                  ; 165      ; 0        ; 0        ; 0        ;
+; clk_clk    ; synchronizer:sync_sclk|sync_reg2                                         ; 36       ; 0        ; 47       ; 0        ;
+; clk_clk    ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 281      ; 0        ; 0        ; 0        ;
++------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 12    ; 12   ;
+; Unconstrained Input Port Paths  ; 86    ; 86   ;
+; Unconstrained Output Ports      ; 6     ; 6    ;
+; Unconstrained Output Port Paths ; 18    ; 18   ;
++---------------------------------+-------+------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Status Summary                                                                                                                                                          ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+-------------+
+; Target                                                                   ; Clock                                                                    ; Type      ; Status      ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+-------------+
+; clk_clk                                                                  ; clk_clk                                                                  ; Base      ; Constrained ;
+; synchronizer:sync_sclk|sync_reg2                                         ; synchronizer:sync_sclk|sync_reg2                                         ; Base      ; Constrained ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; Generated ; Constrained ;
+; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; Generated ; Constrained ;
++--------------------------------------------------------------------------+--------------------------------------------------------------------------+-----------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                                     ;
++----------------------------------------+--------------------------------------------------------------------------------------+
+; Input Port                             ; Comment                                                                              ;
++----------------------------------------+--------------------------------------------------------------------------------------+
+; spislave_avalon_streaming_sink_data[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_valid   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_export_mosi                   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_export_nss                    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_export_sclk                   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------------------------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                                   ;
++--------------------------------------+---------------------------------------------------------------------------------------+
+; Output Port                          ; Comment                                                                               ;
++--------------------------------------+---------------------------------------------------------------------------------------+
+; i2s_tx_bclk_export                   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i2s_tx_lrclk_export                  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i2s_tx_sdata_export                  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pid_focus_pwm_out_export[0]          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_ready ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_export_miso                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------------------------------+---------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                                     ;
++----------------------------------------+--------------------------------------------------------------------------------------+
+; Input Port                             ; Comment                                                                              ;
++----------------------------------------+--------------------------------------------------------------------------------------+
+; spislave_avalon_streaming_sink_data[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_data[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_valid   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_export_mosi                   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_export_nss                    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_export_sclk                   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------------------------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                                   ;
++--------------------------------------+---------------------------------------------------------------------------------------+
+; Output Port                          ; Comment                                                                               ;
++--------------------------------------+---------------------------------------------------------------------------------------+
+; i2s_tx_bclk_export                   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i2s_tx_lrclk_export                  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i2s_tx_sdata_export                  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pid_focus_pwm_out_export[0]          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_avalon_streaming_sink_ready ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spislave_export_miso                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------------------------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Fri Jun 06 20:07:47 2025
+Info: Command: quartus_sta OVDP -c OVDP
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332164): Evaluating HDL-embedded SDC commands
+    Info (332165): Entity MISOctl
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *SPIPhy_altera_avalon_st_idle_inserter|received_esc*|*] -to [get_pins -no_case -compatibility_mode *|rdshiftreg*|*]
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *SPIPhy_altera_avalon_st_idle_inserter|received_esc*|*] -to [get_pins -no_case -compatibility_mode *|rdshiftreg*|*]
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *SPIPhy_altera_avalon_st_idle_inserter|received_esc*|*] -to [get_pins -no_case -compatibility_mode *|rdshiftreg*|*]
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *SPIPhy_altera_avalon_st_idle_inserter|received_esc*|*] -to [get_pins -no_case -compatibility_mode *|rdshiftreg*|*]
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *SPIPhy_altera_avalon_st_idle_inserter|received_esc*|*] -to [get_pins -no_case -compatibility_mode *|rdshiftreg*|*]
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *SPIPhy_altera_avalon_st_idle_inserter|received_esc*|*] -to [get_pins -no_case -compatibility_mode *|rdshiftreg*|*]
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *SPIPhy_altera_avalon_st_idle_inserter|received_esc*|*] -to [get_pins -no_case -compatibility_mode *|rdshiftreg*|*]
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *SPIPhy_altera_avalon_st_idle_inserter|received_esc*|*] -to [get_pins -no_case -compatibility_mode *|rdshiftreg*|*]
+    Info (332165): Entity MOSIctl
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+        Info (332166): set_false_path -from [get_pins -no_case -compatibility_mode *|stsourcedata*|*] -to [get_registers *] 
+    Info (332165): Entity altera_std_synchronizer
+        Info (332166): set_false_path -to [get_keepers {*altera_std_synchronizer:*|din_s1}]
+Info (332104): Reading SDC File: 'OVDP/synthesis/submodules/altera_reset_controller.sdc'
+Info (332142): No user constrained generated clocks found in the design. Calling "derive_pll_clocks -create_base_clocks"
+Info (332110): Deriving PLL clocks
+    Info (332110): create_clock -period 10.000 -waveform {0.000 5.000} -name clk_clk clk_clk
+    Info (332110): create_generated_clock -source {system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin} -divide_by 2 -multiply_by 6 -duty_cycle 50.00 -name {system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]} {system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]}
+    Info (332110): create_generated_clock -source {system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]} -divide_by 60 -duty_cycle 50.00 -name {system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk} {system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk}
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name synchronizer:sync_sclk|sync_reg2 synchronizer:sync_sclk|sync_reg2
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1100mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.089
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.089             -66.057 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     1.703               0.000 clk_clk 
+    Info (332119):     2.954               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is -4.375
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.375             -85.458 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.224               0.000 clk_clk 
+    Info (332119):     0.433               0.000 synchronizer:sync_sclk|sync_reg2 
+Info (332146): Worst-case recovery slack is -4.523
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.523            -185.138 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     0.578               0.000 clk_clk 
+    Info (332119):     2.890               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case removal slack is 0.560
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.560               0.000 clk_clk 
+    Info (332119):     1.145               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     2.869               0.000 synchronizer:sync_sclk|sync_reg2 
+Info (332146): Worst-case minimum pulse width slack is -0.394
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.394             -24.883 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     1.666               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+    Info (332119):     3.870               0.000 clk_clk 
+    Info (332119):    99.307               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332114): Report Metastability: Found 7 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Slow 1100mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.189
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.189             -64.234 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     1.685               0.000 clk_clk 
+    Info (332119):     3.372               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case hold slack is -4.294
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.294             -83.915 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.211               0.000 clk_clk 
+    Info (332119):     0.456               0.000 synchronizer:sync_sclk|sync_reg2 
+Info (332146): Worst-case recovery slack is -4.545
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.545            -187.757 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     1.018               0.000 clk_clk 
+    Info (332119):     3.360               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case removal slack is 0.514
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.514               0.000 clk_clk 
+    Info (332119):     0.817               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     2.970               0.000 synchronizer:sync_sclk|sync_reg2 
+Info (332146): Worst-case minimum pulse width slack is -0.394
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.394             -25.069 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     1.666               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+    Info (332119):     3.823               0.000 clk_clk 
+    Info (332119):    99.252               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332114): Report Metastability: Found 7 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Fast 1100mV 85C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.252
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.252             -27.688 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     4.363               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     5.067               0.000 clk_clk 
+Info (332146): Worst-case hold slack is -2.524
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.524             -49.233 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.134               0.000 clk_clk 
+    Info (332119):     0.262               0.000 synchronizer:sync_sclk|sync_reg2 
+Info (332146): Worst-case recovery slack is -2.460
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.460             -96.176 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     3.294               0.000 clk_clk 
+    Info (332119):     4.599               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case removal slack is 0.294
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.294               0.000 clk_clk 
+    Info (332119):     1.022               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     1.419               0.000 synchronizer:sync_sclk|sync_reg2 
+Info (332146): Worst-case minimum pulse width slack is 0.139
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.139               0.000 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     1.666               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+    Info (332119):     3.790               0.000 clk_clk 
+    Info (332119):    99.553               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332114): Report Metastability: Found 7 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Fast 1100mV 0C Model
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+    Info (332098): Cell: system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.180
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.180             -23.297 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     5.289               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     5.369               0.000 clk_clk 
+Info (332146): Worst-case hold slack is -2.481
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.481             -48.601 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.125               0.000 clk_clk 
+    Info (332119):     0.252               0.000 synchronizer:sync_sclk|sync_reg2 
+Info (332146): Worst-case recovery slack is -2.350
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.350             -92.692 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     4.135               0.000 clk_clk 
+    Info (332119):     5.473               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case removal slack is 0.264
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.264               0.000 clk_clk 
+    Info (332119):     0.668               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     1.395               0.000 synchronizer:sync_sclk|sync_reg2 
+Info (332146): Worst-case minimum pulse width slack is 0.139
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.139               0.000 synchronizer:sync_sclk|sync_reg2 
+    Info (332119):     1.666               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+    Info (332119):     3.783               0.000 clk_clk 
+    Info (332119):    99.542               0.000 system_inst|pll_0|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info (332114): Report Metastability: Found 7 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 5342 megabytes
+    Info: Processing ended: Fri Jun 06 20:07:54 2025
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:10
+
+

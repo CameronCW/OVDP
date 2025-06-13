@@ -1,0 +1,45 @@
+module pid_controller #(
+    parameter signed Kp = 12,
+    parameter signed Ki = 5,
+    parameter signed Kd = 3,
+    parameter SHIFT = 4  // Right shift after computation (equiv to divide by 2^SHIFT)
+)(
+    input wire clk,
+    input wire reset_n,
+    input wire signed [15:0] error_in,      // error signal (e.g., focus - center)
+    input wire enable,                      // allows PID update when asserted
+
+    output reg [7:0] control_out            // PWM duty cycle output
+);
+
+    // Internal registers
+    reg signed [31:0] error_sum = 0;
+    reg signed [15:0] last_error = 0;
+    reg signed [31:0] pid_output;
+    reg signed [15:0] error_diff;
+
+    // PID logic
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            error_sum   <= 0;
+            last_error  <= 0;
+            pid_output  <= 0;
+            control_out <= 8'd128;  // Center position (0 output)
+        end else if (enable) begin
+            error_diff  <= error_in - last_error;
+            error_sum   <= error_sum + error_in;
+            last_error  <= error_in;
+
+            pid_output <= (Kp * error_in + Ki * error_sum + Kd * error_diff) >>> SHIFT;
+
+            // Clamp to 0–255
+            if (pid_output > 127)
+                control_out <= 8'd255;
+            else if (pid_output < -128)
+                control_out <= 8'd0;
+            else
+                control_out <= 8'd128 + pid_output[7:0];
+        end
+    end
+
+endmodule

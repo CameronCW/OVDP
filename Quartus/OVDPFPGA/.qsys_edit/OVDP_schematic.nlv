@@ -1,0 +1,60 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst OVDP.channel_processor_top_0 -pg 1 -lvl 3 -y 670
+preplace inst OVDP.altpll_0 -pg 1 -lvl 2 -y 1680
+preplace inst OVDP.clk_0 -pg 1 -lvl 1 -y 1760
+preplace inst OVDP.spi_command_decoder_0 -pg 1 -lvl 4 -y 1750
+preplace inst OVDP.pid_focus_0 -pg 1 -lvl 3 -y 970
+preplace inst OVDP.i2s_tx_0 -pg 1 -lvl 3 -y 1410
+preplace inst OVDP.spislave_0 -pg 1 -lvl 3 -y 1730
+preplace inst OVDP.sig_extract_0 -pg 1 -lvl 3 -y 390
+preplace inst OVDP -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst OVDP.preProcess_block_0 -pg 1 -lvl 3 -y 30
+preplace inst OVDP.output_conversion_0 -pg 1 -lvl 3 -y 1170
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)OVDP.i2s_tx_lrclk,(SLAVE)i2s_tx_0.lrclk) 1 0 3 NJ 1440 NJ 1440 NJ
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.dir,(SLAVE)sig_extract_0.dir) 1 2 1 1260
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.valid_R,(SLAVE)channel_processor_top_0.valid_R) 1 2 1 1380
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)sig_extract_0.sample_pair_valid,(SLAVE)channel_processor_top_0.sample_valid) 1 2 1 1460
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)OVDP.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.sig_rise_R,(SLAVE)sig_extract_0.sig_rise_R) 1 2 1 1340
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.mute,(SLAVE)spi_command_decoder_0.mute) 1 2 2 1260 1870 1810
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.dir_cp,(SLAVE)channel_processor_top_0.dir) 1 2 1 1180
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)OVDP.pid_focus_pwm_out,(SLAVE)pid_focus_0.pwm_out) 1 0 3 NJ 1100 NJ 1100 NJ
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)OVDP.i2s_tx_sdata,(SLAVE)i2s_tx_0.sdata) 1 0 3 NJ 1540 NJ 1540 NJ
+preplace netloc FAN_OUT<net_container>OVDP</net_container>(SLAVE)altpll_0.inclk_interface,(SLAVE)sig_extract_0.clock,(SLAVE)output_conversion_0.clock,(SLAVE)i2s_tx_0.clock,(MASTER)clk_0.clk,(SLAVE)channel_processor_top_0.clock,(SLAVE)spislave_0.clock_sink,(SLAVE)pid_focus_0.clock,(SLAVE)preProcess_block_0.clock,(SLAVE)spi_command_decoder_0.clock) 1 1 3 430 1790 1140 1720 1890
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)channel_processor_top_0.sig_time_R,(SLAVE)sig_extract_0.right_sample_time) 1 2 1 1440
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.sample_R,(SLAVE)channel_processor_top_0.sample_R) 1 2 1 1340
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)pid_focus_0.focus_signal,(SLAVE)spi_command_decoder_0.focus_signal) 1 2 2 1240 1620 1950
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)spi_command_decoder_0.avalon_streaming_sink,(MASTER)spislave_0.avalon_streaming_source) 1 3 1 N
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.valid_L,(SLAVE)channel_processor_top_0.valid_L) 1 2 1 1360
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.out_R,(SLAVE)i2s_tx_0.sample_R) 1 2 1 1420
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)OVDP.preprocess_block_sig,(SLAVE)preProcess_block_0.sig) 1 0 3 NJ 160 NJ 160 NJ
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)pid_focus_0.threshold,(SLAVE)spi_command_decoder_0.threshold) 1 2 2 1300 1660 1830
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.sample_L,(SLAVE)channel_processor_top_0.sample_L) 1 2 1 1320
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.out_L,(SLAVE)i2s_tx_0.sample_L) 1 2 1 1400
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)spi_command_decoder_0.kd,(SLAVE)pid_focus_0.kd) 1 2 2 1200 1680 1910
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)channel_processor_top_0.t_rtl,(SLAVE)preProcess_block_0.t_rtl) 1 2 1 1240
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.sync_start,(SLAVE)channel_processor_top_0.sync_start) 1 2 1 1200
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.sig_time_L,(SLAVE)sig_extract_0.sig_time_L) 1 2 1 1360
+preplace netloc FAN_OUT<net_container>OVDP</net_container>(SLAVE)channel_processor_top_0.clock_slow,(MASTER)altpll_0.c0,(SLAVE)pid_focus_0.clock_slow) 1 2 1 1100
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)OVDP.spislave_export,(SLAVE)spislave_0.export_0) 1 0 3 NJ 1830 NJ 1830 NJ
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)pid_focus_0.kp,(SLAVE)spi_command_decoder_0.kp) 1 2 2 1280 1640 1930
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)clk_0.clk_in,(SLAVE)OVDP.clk) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.volume,(SLAVE)spi_command_decoder_0.volume) 1 2 2 1460 1600 1870
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.t_ltr,(SLAVE)channel_processor_top_0.t_ltr) 1 2 1 1220
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.sig_rise_L,(SLAVE)sig_extract_0.sig_rise_L) 1 2 1 1320
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.sig_fall_R,(SLAVE)sig_extract_0.sig_fall_R) 1 2 1 1300
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.rsync,(SLAVE)OVDP.preprocess_block_rsync) 1 0 3 NJ 140 NJ 140 NJ
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.lsync,(SLAVE)OVDP.preprocess_block_lsync) 1 0 3 NJ 100 NJ 100 NJ
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)OVDP.i2s_tx_bclk,(SLAVE)i2s_tx_0.bclk) 1 0 3 NJ 1420 NJ 1420 NJ
+preplace netloc FAN_OUT<net_container>OVDP</net_container>(SLAVE)altpll_0.inclk_interface_reset,(SLAVE)spi_command_decoder_0.reset,(SLAVE)sig_extract_0.reset,(SLAVE)channel_processor_top_0.reset,(SLAVE)spislave_0.clock_sink_reset,(SLAVE)output_conversion_0.reset,(SLAVE)i2s_tx_0.reset,(SLAVE)pid_focus_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)preProcess_block_0.reset) 1 1 3 410 1810 1160 1890 1790
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)sig_extract_0.left_sample_time,(SLAVE)channel_processor_top_0.sig_time_L) 1 2 1 1420
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)OVDP.altpll_0_pll_slave,(SLAVE)altpll_0.pll_slave) 1 0 2 NJ 1730 NJ
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)spi_command_decoder_0.ki,(SLAVE)pid_focus_0.ki) 1 2 2 1220 1700 1850
+preplace netloc EXPORT<net_container>OVDP</net_container>(SLAVE)spislave_0.avalon_streaming_sink,(SLAVE)OVDP.spislave_avalon_streaming_sink) 1 0 3 NJ 1750 NJ 1770 NJ
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)output_conversion_0.valid_out,(SLAVE)i2s_tx_0.valid_in) 1 2 1 1440
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.split_sync_time,(SLAVE)sig_extract_0.split_sync_time) 1 2 1 1400
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)preProcess_block_0.sig_time_R,(SLAVE)sig_extract_0.sig_time_R) 1 2 1 1380
+preplace netloc POINT_TO_POINT<net_container>OVDP</net_container>(SLAVE)sig_extract_0.sig_fall_L,(SLAVE)preProcess_block_0.sig_fall_L) 1 2 1 1280
+levelinfo -pg 1 0 200 2160
+levelinfo -hier OVDP 210 240 910 1540 1980 2150

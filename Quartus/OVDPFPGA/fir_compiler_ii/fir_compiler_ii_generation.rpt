@@ -1,0 +1,33 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate F:\Imperial\Desktop\OVDPFPGA\fir_compiler_ii.qsys --block-symbol-file --output-directory=F:\Imperial\Desktop\OVDPFPGA\fir_compiler_ii --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading OVDPFPGA/fir_compiler_ii.qsys
+Progress: Reading input file
+Progress: Adding fir_compiler_ii_0 [altera_fir_compiler_ii 20.1]
+Progress: Parameterizing module fir_compiler_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: fir_compiler_ii.fir_compiler_ii_0: PhysChanIn 1, PhysChanOut 1, ChansPerPhyIn 1, ChansPerPhyOut 1, OutputFullBitWidth 22, Bankcount 1, CoefBitWidth 8
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate F:\Imperial\Desktop\OVDPFPGA\fir_compiler_ii.qsys --synthesis=VERILOG --greybox --output-directory=F:\Imperial\Desktop\OVDPFPGA\fir_compiler_ii\synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading OVDPFPGA/fir_compiler_ii.qsys
+Progress: Reading input file
+Progress: Adding fir_compiler_ii_0 [altera_fir_compiler_ii 20.1]
+Progress: Parameterizing module fir_compiler_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: fir_compiler_ii.fir_compiler_ii_0: PhysChanIn 1, PhysChanOut 1, ChansPerPhyIn 1, ChansPerPhyOut 1, OutputFullBitWidth 22, Bankcount 1, CoefBitWidth 8
+Info: fir_compiler_ii: Generating fir_compiler_ii "fir_compiler_ii" for QUARTUS_SYNTH
+Info: fir_compiler_ii_0: PhysChanIn 1, PhysChanOut 1, ChansPerPhyIn 1, ChansPerPhyOut 1, OutputFullBitWidth 22, Bankcount 1, Latency 12, CoefBitWidth 8
+Info: fir_compiler_ii_0: "fir_compiler_ii" instantiated altera_fir_compiler_ii "fir_compiler_ii_0"
+Info: fir_compiler_ii: Done "fir_compiler_ii" with 2 modules, 13 files
+Info: Generating third-party timing and resource estimation model ...
+Info: Done generating third-party timing and resource estimation model.
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

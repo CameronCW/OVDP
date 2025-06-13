@@ -1,0 +1,198 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 512 584)
+	(text "OVDP" (rect 237 -1 265 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 568 20 580)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 61 46 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 224 72)(line_width 1))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "preprocess_block_lsync_export" (rect 0 0 128 12)(font "Arial" (font_size 8)))
+		(text "preprocess_block_lsync_export" (rect 4 261 178 272)(font "Arial" (font_size 8)))
+		(line (pt 0 272)(pt 224 272)(line_width 1))
+	)
+	(port
+		(pt 0 312)
+		(input)
+		(text "preprocess_block_rsync_export" (rect 0 0 130 12)(font "Arial" (font_size 8)))
+		(text "preprocess_block_rsync_export" (rect 4 301 178 312)(font "Arial" (font_size 8)))
+		(line (pt 0 312)(pt 224 312)(line_width 1))
+	)
+	(port
+		(pt 0 352)
+		(input)
+		(text "preprocess_block_sig_export" (rect 0 0 118 12)(font "Arial" (font_size 8)))
+		(text "preprocess_block_sig_export" (rect 4 341 166 352)(font "Arial" (font_size 8)))
+		(line (pt 0 352)(pt 224 352)(line_width 1))
+	)
+	(port
+		(pt 0 392)
+		(input)
+		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 381 82 392)(font "Arial" (font_size 8)))
+		(line (pt 0 392)(pt 224 392)(line_width 1))
+	)
+	(port
+		(pt 0 432)
+		(input)
+		(text "spislave_avalon_streaming_sink_valid" (rect 0 0 153 12)(font "Arial" (font_size 8)))
+		(text "spislave_avalon_streaming_sink_valid" (rect 4 421 220 432)(font "Arial" (font_size 8)))
+		(line (pt 0 432)(pt 224 432)(line_width 1))
+	)
+	(port
+		(pt 0 448)
+		(input)
+		(text "spislave_avalon_streaming_sink_data[7..0]" (rect 0 0 172 12)(font "Arial" (font_size 8)))
+		(text "spislave_avalon_streaming_sink_data[7..0]" (rect 4 437 250 448)(font "Arial" (font_size 8)))
+		(line (pt 0 448)(pt 224 448)(line_width 3))
+	)
+	(port
+		(pt 0 504)
+		(input)
+		(text "spislave_export_mosi" (rect 0 0 87 12)(font "Arial" (font_size 8)))
+		(text "spislave_export_mosi" (rect 4 493 124 504)(font "Arial" (font_size 8)))
+		(line (pt 0 504)(pt 224 504)(line_width 1))
+	)
+	(port
+		(pt 0 520)
+		(input)
+		(text "spislave_export_nss" (rect 0 0 82 12)(font "Arial" (font_size 8)))
+		(text "spislave_export_nss" (rect 4 509 118 520)(font "Arial" (font_size 8)))
+		(line (pt 0 520)(pt 224 520)(line_width 1))
+	)
+	(port
+		(pt 0 552)
+		(input)
+		(text "spislave_export_sclk" (rect 0 0 83 12)(font "Arial" (font_size 8)))
+		(text "spislave_export_sclk" (rect 4 541 124 552)(font "Arial" (font_size 8)))
+		(line (pt 0 552)(pt 224 552)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(output)
+		(text "i2s_tx_bclk_export" (rect 0 0 75 12)(font "Arial" (font_size 8)))
+		(text "i2s_tx_bclk_export" (rect 4 101 112 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 224 112)(line_width 1))
+	)
+	(port
+		(pt 0 152)
+		(output)
+		(text "i2s_tx_lrclk_export" (rect 0 0 75 12)(font "Arial" (font_size 8)))
+		(text "i2s_tx_lrclk_export" (rect 4 141 118 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 224 152)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(output)
+		(text "i2s_tx_sdata_export" (rect 0 0 81 12)(font "Arial" (font_size 8)))
+		(text "i2s_tx_sdata_export" (rect 4 181 118 192)(font "Arial" (font_size 8)))
+		(line (pt 0 192)(pt 224 192)(line_width 1))
+	)
+	(port
+		(pt 0 232)
+		(output)
+		(text "pid_focus_pwm_out_export[7..0]" (rect 0 0 132 12)(font "Arial" (font_size 8)))
+		(text "pid_focus_pwm_out_export[7..0]" (rect 4 221 184 232)(font "Arial" (font_size 8)))
+		(line (pt 0 232)(pt 224 232)(line_width 3))
+	)
+	(port
+		(pt 0 464)
+		(output)
+		(text "spislave_avalon_streaming_sink_ready" (rect 0 0 159 12)(font "Arial" (font_size 8)))
+		(text "spislave_avalon_streaming_sink_ready" (rect 4 453 220 464)(font "Arial" (font_size 8)))
+		(line (pt 0 464)(pt 224 464)(line_width 1))
+	)
+	(port
+		(pt 0 536)
+		(bidir)
+		(text "spislave_export_miso" (rect 0 0 87 12)(font "Arial" (font_size 8)))
+		(text "spislave_export_miso" (rect 4 525 124 536)(font "Arial" (font_size 8)))
+		(line (pt 0 536)(pt 224 536)(line_width 1))
+	)
+	(drawing
+		(text "clk" (rect 209 43 436 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 229 67 476 144)(font "Arial" (color 0 0 0)))
+		(text "i2s_tx_bclk" (rect 159 83 384 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 107 494 224)(font "Arial" (color 0 0 0)))
+		(text "i2s_tx_lrclk" (rect 158 123 388 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 147 494 304)(font "Arial" (color 0 0 0)))
+		(text "i2s_tx_sdata" (rect 150 163 372 339)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 187 494 384)(font "Arial" (color 0 0 0)))
+		(text "pid_focus_pwm_out" (rect 106 203 314 419)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 227 494 464)(font "Arial" (color 0 0 0)))
+		(text "preprocess_block_lsync" (rect 85 243 302 499)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 267 494 544)(font "Arial" (color 0 0 0)))
+		(text "preprocess_block_rsync" (rect 83 283 298 579)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 307 494 624)(font "Arial" (color 0 0 0)))
+		(text "preprocess_block_sig" (rect 97 323 314 659)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 347 494 704)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 195 363 420 739)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 229 387 500 784)(font "Arial" (color 0 0 0)))
+		(text "spislave_avalon_streaming_sink" (rect 35 403 250 819)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "valid" (rect 229 427 488 864)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 229 443 482 896)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 229 459 488 928)(font "Arial" (color 0 0 0)))
+		(text "spislave_export" (rect 134 475 358 963)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "mosi" (rect 229 499 482 1008)(font "Arial" (color 0 0 0)))
+		(text "nss" (rect 229 515 476 1040)(font "Arial" (color 0 0 0)))
+		(text "miso" (rect 229 531 482 1072)(font "Arial" (color 0 0 0)))
+		(text "sclk" (rect 229 547 482 1104)(font "Arial" (color 0 0 0)))
+		(text " OVDP " (rect 481 568 998 1146)(font "Arial" ))
+		(line (pt 224 32)(pt 288 32)(line_width 1))
+		(line (pt 288 32)(pt 288 568)(line_width 1))
+		(line (pt 224 568)(pt 288 568)(line_width 1))
+		(line (pt 224 32)(pt 224 568)(line_width 1))
+		(line (pt 225 52)(pt 225 76)(line_width 1))
+		(line (pt 226 52)(pt 226 76)(line_width 1))
+		(line (pt 225 92)(pt 225 116)(line_width 1))
+		(line (pt 226 92)(pt 226 116)(line_width 1))
+		(line (pt 225 132)(pt 225 156)(line_width 1))
+		(line (pt 226 132)(pt 226 156)(line_width 1))
+		(line (pt 225 172)(pt 225 196)(line_width 1))
+		(line (pt 226 172)(pt 226 196)(line_width 1))
+		(line (pt 225 212)(pt 225 236)(line_width 1))
+		(line (pt 226 212)(pt 226 236)(line_width 1))
+		(line (pt 225 252)(pt 225 276)(line_width 1))
+		(line (pt 226 252)(pt 226 276)(line_width 1))
+		(line (pt 225 292)(pt 225 316)(line_width 1))
+		(line (pt 226 292)(pt 226 316)(line_width 1))
+		(line (pt 225 332)(pt 225 356)(line_width 1))
+		(line (pt 226 332)(pt 226 356)(line_width 1))
+		(line (pt 225 372)(pt 225 396)(line_width 1))
+		(line (pt 226 372)(pt 226 396)(line_width 1))
+		(line (pt 225 412)(pt 225 468)(line_width 1))
+		(line (pt 226 412)(pt 226 468)(line_width 1))
+		(line (pt 225 484)(pt 225 556)(line_width 1))
+		(line (pt 226 484)(pt 226 556)(line_width 1))
+		(line (pt 0 0)(pt 512 0)(line_width 1))
+		(line (pt 512 0)(pt 512 584)(line_width 1))
+		(line (pt 0 584)(pt 512 584)(line_width 1))
+		(line (pt 0 0)(pt 0 584)(line_width 1))
+	)
+)

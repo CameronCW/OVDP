@@ -1,0 +1,12 @@
+// Avalon-MM
+input wire clk,
+input wire reset_n,
+input wire [2:0] address,
+input wire [15:0] writedata,
+input wire write,
+input wire chipselect,
+output wire [15:0] readdata,
+
+// External
+input wire signed [15:0] focus_signal,
+output wire [7:0] pwm_out

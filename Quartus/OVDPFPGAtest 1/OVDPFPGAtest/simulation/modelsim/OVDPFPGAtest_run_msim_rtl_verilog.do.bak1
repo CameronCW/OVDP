@@ -1,0 +1,14 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+F:/Imperial/Desktop/OVDPFPGAtest {F:/Imperial/Desktop/OVDPFPGAtest/split_sync_predictor.v}
+vlog -vlog01compat -work work +incdir+F:/Imperial/Desktop/OVDPFPGAtest {F:/Imperial/Desktop/OVDPFPGAtest/scan_dir_tracker.v}
+vlog -vlog01compat -work work +incdir+F:/Imperial/Desktop/OVDPFPGAtest {F:/Imperial/Desktop/OVDPFPGAtest/preProcess_block.v}
+vlog -vlog01compat -work work +incdir+F:/Imperial/Desktop/OVDPFPGAtest {F:/Imperial/Desktop/OVDPFPGAtest/groove_sample_selector.v}
+vlog -vlog01compat -work work +incdir+F:/Imperial/Desktop/OVDPFPGAtest {F:/Imperial/Desktop/OVDPFPGAtest/afll.v}
+vlog -vlog01compat -work work +incdir+F:/Imperial/Desktop/OVDPFPGAtest {F:/Imperial/Desktop/OVDPFPGAtest/AbsDiff.v}
+

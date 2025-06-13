@@ -1,0 +1,90 @@
+module polyphase_upsampler (
+    input wire clk,
+    input wire reset_n,
+
+    // Input sample stream at 27.4kHz
+    input wire signed [15:0] in_sample,
+    input wire valid_in,
+
+    // Output stream at ~44.1kHz (1.609x)
+    output reg signed [15:0] out_sample,
+    output reg valid_out
+);
+
+    parameter UPSAMPLE_NUM = 274;
+    parameter UPSAMPLE_DEN = 170; // 274/170 ≈ 1.61176
+
+    // Phase accumulator
+    reg [15:0] phase_accum = 0;
+    wire [3:0] phase_index = phase_accum[15:12]; // Top 4 bits for 16 phases
+
+    // 8-sample circular buffer
+    reg signed [15:0] sample_buf [0:7];
+    reg [2:0] wr_ptr = 0;
+
+    // Coefficient ROM connection
+    wire signed [15:0] coeff;
+    reg [2:0] tap_index = 0;
+
+    coeff_rom coeffs (
+        .phase(phase_index),
+        .tap_index(tap_index),
+        .coeff(coeff)
+    );
+
+    // MAC accumulator
+    reg signed [31:0] acc = 0;
+    reg [2:0] mac_step = 0;
+    reg mac_active = 0;
+
+    // Phase control
+    always @(posedge clk) begin
+        if (!reset_n) begin
+            phase_accum <= 0;
+        end else if (valid_in) begin
+            phase_accum <= phase_accum + UPSAMPLE_NUM;
+            // Store new input sample
+            sample_buf[wr_ptr] <= in_sample;
+            wr_ptr <= wr_ptr + 1;
+        end
+    end
+
+    // MAC engine
+    reg [2:0] mac_ptr = 0;
+    reg [2:0] rd_index = 0;
+    reg signed [15:0] sample_val;
+
+    always @(posedge clk) begin
+        if (!reset_n) begin
+            mac_active <= 0;
+            mac_ptr <= 0;
+            acc <= 0;
+            valid_out <= 0;
+        end else begin
+            valid_out <= 0;
+
+            // Output needed when phase_accum exceeds threshold
+            if (!mac_active && (phase_accum >= UPSAMPLE_DEN)) begin
+                mac_active <= 1;
+                mac_ptr <= 0;
+                acc <= 0;
+                rd_index <= wr_ptr; // Start at newest sample
+            end else if (mac_active) begin
+                tap_index <= mac_ptr;
+                rd_index <= wr_ptr - mac_ptr - 1;
+                sample_val <= sample_buf[rd_index & 3'b111];
+
+                acc <= acc + sample_val * coeff;
+                mac_ptr <= mac_ptr + 1;
+
+                if (mac_ptr == 7) begin
+                    mac_active <= 0;
+                    out_sample <= acc[30:15]; // Q1.15 back to 16-bit
+                    valid_out <= 1;
+                    phase_accum <= phase_accum - UPSAMPLE_DEN;
+                end
+            end
+        end
+    end
+
+endmodule

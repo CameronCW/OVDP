@@ -1,0 +1,44 @@
+module output_stage_with_volume (
+    input wire clk,
+    input wire reset_n,
+
+    // Inputs from demux
+    input wire signed [15:0] left_sample,
+    input wire signed [15:0] right_sample,
+    input wire sample_pair_valid,
+
+    // Volume control
+    input wire [7:0] volume,
+
+    // Final outputs
+    output wire signed [15:0] audio_left,
+    output wire signed [15:0] audio_right,
+    output wire valid_out
+);
+
+    wire valid_left, valid_right;
+
+    volume_control volume_left (
+        .clk(clk),
+        .reset_n(reset_n),
+        .in_sample(left_sample),
+        .valid_in(sample_pair_valid),
+        .volume(volume),
+        .out_sample(audio_left),
+        .valid_out(valid_left)
+    );
+
+    volume_control volume_right (
+        .clk(clk),
+        .reset_n(reset_n),
+        .in_sample(right_sample),
+        .valid_in(sample_pair_valid),
+        .volume(volume),
+        .out_sample(audio_right),
+        .valid_out(valid_right)
+    );
+
+    // If both channels always valid together, pick one
+    assign valid_out = valid_right;
+
+endmodule

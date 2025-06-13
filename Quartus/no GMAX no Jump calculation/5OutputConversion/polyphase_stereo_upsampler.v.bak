@@ -1,0 +1,40 @@
+module polyphase_stereo_upsampler (
+    input wire clk,
+    input wire reset_n,
+
+    // Input stereo stream @ 27.4kHz
+    input wire signed [15:0] left_in,
+    input wire signed [15:0] right_in,
+    input wire valid_in,  // Assumes both channels are valid at same time
+
+    // Output stereo stream @ 44.1kHz
+    output wire signed [15:0] left_out,
+    output wire signed [15:0] right_out,
+    output wire valid_out   // Pulses when both outputs are valid
+);
+
+    wire valid_left_out;
+    wire valid_right_out;
+
+    polyphase_upsampler up_left (
+        .clk(clk),
+        .reset_n(reset_n),
+        .in_sample(left_in),
+        .valid_in(valid_in),
+        .out_sample(left_out),
+        .valid_out(valid_left_out)
+    );
+
+    polyphase_upsampler up_right (
+        .clk(clk),
+        .reset_n(reset_n),
+        .in_sample(right_in),
+        .valid_in(valid_in),
+        .out_sample(right_out),
+        .valid_out(valid_right_out)
+    );
+
+    // Output valid only when both channels are done (simple sync)
+    assign valid_out = valid_left_out & valid_right_out;
+
+endmodule

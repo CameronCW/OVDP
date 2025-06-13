@@ -1,0 +1,7 @@
+# Create clocks
+create_clock -name clk_sys -period 10 [get_ports clk_clk]   ;# 100 MHz, 10ns period
+create_clock -name clk_slow -period 200 [get_clocks synchronizer:sync_sclk|sync_reg2] ;# 5 MHz, 200ns period
+
+# ignore paths between these clock domains (we use CDC synchronisers :) )
+set_false_path -from [get_clocks clk_sys] -to [get_clocks clk_slow]
+set_false_path -from [get_clocks clk_slow] -to [get_clocks clk_sys]

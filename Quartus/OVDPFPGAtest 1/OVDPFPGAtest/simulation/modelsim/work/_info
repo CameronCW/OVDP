@@ -1,0 +1,132 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dF:/Imperial/Desktop/OVDPFPGAtest 1/OVDPFPGAtest/simulation/modelsim
+vAbsDiff
+Z1 !s110 1749770772
+!i10b 1
+!s100 hi]Qk;HDUQBe1Y0H3cMXC1
+I1[UK:@LJ=joj]>gNT0>f?3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1749577340
+8AbsDiff.v
+FAbsDiff.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1749770772.000000
+Z5 !s107 split_sync_predictor.v|scan_dir_tracker.v|preProcess_block.v|groove_sample_selector.v|afll.v|AbsDiff.v|
+Z6 !s90 -reportprogress|300|AbsDiff.v|afll.v|groove_sample_selector.v|preProcess_block.v|scan_dir_tracker.v|split_sync_predictor.v|
+!i113 1
+Z7 tCvgOpt 0
+n@abs@diff
+vafll
+R1
+!i10b 1
+!s100 UmWI>IP2]HS9_Q22J0c[X2
+I=Qc?oSW?_GC]CdYGRUFTY0
+R2
+R0
+w1749502080
+8afll.v
+Fafll.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vgroove_sample_selector
+R1
+!i10b 1
+!s100 T<I;2BmH8XMF[2[2M;hZP0
+IVQGWcm7R_^PMniIaMYa=N3
+R2
+R0
+w1749579258
+8groove_sample_selector.v
+Fgroove_sample_selector.v
+L0 6
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vpreProcess_block
+R1
+!i10b 1
+!s100 <Vc40i81jH>^S6<KV2QGM1
+IcH;=6=IS6ScIRg]ej19`]1
+R2
+R0
+w1749764097
+8preProcess_block.v
+FpreProcess_block.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+npre@process_block
+vscan_dir_tracker
+R1
+!i10b 1
+!s100 78N5HYegAM>7amnC>6<dW0
+IATEE5Q9a1idDFO;UeRb>M3
+R2
+R0
+w1749760990
+8scan_dir_tracker.v
+Fscan_dir_tracker.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vsplit_sync_predictor
+R1
+!i10b 1
+!s100 FBF50O]o]@]0L[AO>l3:K1
+I>ZmLfF>H=RO8H[cWKXBJa2
+R2
+R0
+w1749763692
+8split_sync_predictor.v
+Fsplit_sync_predictor.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7

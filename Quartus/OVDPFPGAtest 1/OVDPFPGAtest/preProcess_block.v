@@ -1,0 +1,217 @@
+module preProcess_block (
+    input  wire        clk,
+    input  wire        reset_n,
+
+    // Digital comparator inputs
+    input  wire        lsync,     // left sync pulse
+    input  wire        rsync,     // right sync pulse
+    input  wire        sig,       // groove edge pulse
+
+    // Direction outputs (separate for conduit use)
+    output wire        dir,       // to sig_extract
+    output wire        dir_cp,    // to channel_processor
+
+    // Outputs to Mono SIG Extract
+    output wire [31:0] sig_time_L,
+    output wire        sig_rise_L,
+    output wire        sig_fall_L,
+    output wire [31:0] sig_time_R,
+    output wire        sig_rise_R,
+    output wire        sig_fall_R,
+
+    output wire [31:0] t_ltr,
+    output wire [31:0] t_rtl,
+    output wire [31:0] split_sync_time,
+    output reg        sync_start_stable
+);
+
+    // === Free-running timer for timestamping used for sync_start
+    reg [31:0] timer;
+	 
+	 initial timer = 32'd0;
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n)
+            timer <= 0;
+        else
+            timer <= timer + 1;
+    end
+
+    // === SYNC edge detection
+    reg lsync_prev, rsync_prev;
+    wire lsync_rise = lsync & ~lsync_prev;
+    wire lsync_fall = ~lsync & lsync_prev;
+    wire rsync_rise = rsync & ~rsync_prev;
+    wire rsync_fall = ~rsync & rsync_prev;
+
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            lsync_prev <= 0;
+            rsync_prev <= 0;
+        end else begin
+            lsync_prev <= lsync;
+            rsync_prev <= rsync;
+        end
+    end
+
+    // === SYNC timestamp registers
+    reg [31:0] lsync_rise_time, lsync_fall_time;
+    reg [31:0] rsync_rise_time, rsync_fall_time;
+	 
+	 initial lsync_rise_time = 32'd4000;
+	 initial lsync_fall_time = 32'd4000;
+	 initial rsync_rise_time = 32'd2000;
+	 initial rsync_fall_time = 32'd2000;
+
+    always @(posedge clk) begin
+        if (lsync_rise)
+            lsync_rise_time <= timer;
+        if (lsync_fall)
+            lsync_fall_time <= timer;
+        if (rsync_rise)
+            rsync_rise_time <= timer;
+        if (rsync_fall)
+            rsync_fall_time <= timer;
+    end
+
+    // === SYNC midpoint logic (sync_start pulse)
+//	 wire sync_start;
+//    reg        sync_start_reg;
+//    assign     sync_start = sync_start_reg;
+//
+//    always @(posedge clk or negedge reset_n) begin
+//        if (!reset_n)
+//            sync_start_reg <= 0;
+//        else begin
+//            sync_start_reg <= lsync_fall | rsync_fall;  // pulse on either SYNC falling
+//				
+//				if (timer == split_sync_time)
+//					sync_start_stable <= 1;
+//				else
+//					sync_start_stable <=0;			
+//			end
+//    end
+	 
+		reg [31:0] split_sync_time_reg;
+		wire match_sync_time;
+
+		assign match_sync_time = (timer == split_sync_time_reg);
+
+		always @(posedge clk or negedge reset_n) begin
+			 if (!reset_n) begin
+				  sync_start_stable <= 0;
+				  split_sync_time_reg <= 0;
+			 end else begin
+				  // Latch the predicted sync time from the predictor
+				  split_sync_time_reg <= split_sync_time;
+
+				  // Generate a 1-cycle pulse when timer matches predicted time
+				  if (timer == split_sync_time_reg)
+						sync_start_stable <= 1;
+				  else
+						sync_start_stable <= 0;
+			 end
+		end
+
+		// === Actual falling edge pulse for predictor (required input)
+		reg sync_start;
+		initial sync_start = 1'b0;
+
+    // === dir FSM (RTL or LTR)
+    wire dir_internal;
+    scan_dir_tracker u_dir (
+        .clk(clk),								// Input
+        .reset_n(reset_n),						// Input
+        .sync_start(sync_start_stable), 	// Input
+        .dir(dir_internal)						// Output
+		  
+    );
+
+    assign dir   = dir_internal;
+    assign dir_cp = dir_internal;
+
+
+    // === Adaptive FLL
+    afll u_afll (
+        .clk(clk),								// Input
+        .reset_n(reset_n),						// Input
+        .sync_start(sync_start_stable),	// Input
+        .scan_dir(dir_internal),				// Input
+        .t_ltr(t_ltr),							// Output
+        .t_rtl(t_rtl)							// Output
+    );
+
+    // === Split Sync Predictor
+    split_sync_predictor u_split_sync (
+        .clk(clk),
+        .reset_n(reset_n),
+        .lsync_rise_time(lsync_rise_time),
+        .lsync_fall_time(lsync_fall_time),
+        .rsync_rise_time(rsync_rise_time),
+        .rsync_fall_time(rsync_fall_time),	
+        .scan_dir(dir_internal),
+        .sync_pulse(sync_start),					// Input
+        .split_sync_time(split_sync_time)		// Output
+    );
+	 
+	  // === Groove Sample Selector (needs sig_fall generation and sig events)
+					  
+		// === Groove edge rise/fall detection
+		reg sig_prev;
+		wire sig_rise_event = sig & ~sig_prev;
+		wire sig_fall_event = ~sig & sig_prev;
+
+		always @(posedge clk or negedge reset_n) begin
+			 if (!reset_n)
+				  sig_prev <= 0;
+			 else
+				  sig_prev <= sig;
+				  
+			 sync_start <= lsync_fall | rsync_fall;
+		end
+
+		// === Groove Sample Selector
+		groove_sample_selector #(8) u_groove_sample_selector (
+			 .clk(clk),
+			 .reset_n(reset_n),
+			 .dir(dir_internal),
+			 .current_timestamp(timer),
+			 .sig_l_edge(sig_rise_event | sig_fall_event),
+			 .sig_l_rise(sig_rise_event),
+			 .sig_r_edge(sig_rise_event | sig_fall_event),
+			 .sig_r_rise(sig_rise_event),
+			 .sync_pulse(sync_start_stable),							// Input inc and above
+			 .best_sig_time_L(sig_time_L),							// Output inc and below
+			 .best_sig_is_rise_L(sig_rise_L),
+			 .best_sig_time_R(sig_time_R),
+			 .best_sig_is_rise_R(sig_rise_R),
+			 .best_sample_valid()
+		);
+
+		// === SIG Fall Assignments
+		assign sig_fall_L = ~sig_rise_L;
+		assign sig_fall_R = ~sig_rise_R;
+ 
+	 // --- Now obsolete due to grooveSampleSelector ---
+
+//	     // === SIG timestampers
+//    sig_timestamp u_sig_L (
+//        .clk(clk),
+//        .reset_n(reset_n),
+//        .sig_edge(sig),
+//        .sync_start(sync_start),
+//        .sig_time(sig_time_L),
+//        .sig_rise(sig_rise_L),
+//        .sig_fall(sig_fall_L)
+//    );
+
+//    sig_timestamp u_sig_R (
+//        .clk(clk),
+//        .reset_n(reset_n),
+//        .sig_edge(sig),
+//        .sync_start(sync_start),
+//        .sig_time(sig_time_R),
+//        .sig_rise(sig_rise_R),
+//        .sig_fall(sig_fall_R)
+//    );
+
+endmodule

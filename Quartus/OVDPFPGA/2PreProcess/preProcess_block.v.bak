@@ -1,0 +1,90 @@
+module preprocess_block (
+    input  wire        clk,
+    input  wire        reset_n,
+
+    // Digital comparator inputs
+    input  wire        lsync,     // left sync pulse
+    input  wire        rsync,     // right sync pulse
+    input  wire        sig,       // groove edge pulse
+
+    // Direction input (from scan FSM)
+    input  wire        dir,       // 0 = LTR, 1 = RTL
+
+    // Outputs to Mono SIG Extract
+    output wire [31:0] sig_time_L,
+    output wire        sig_rise_L,
+    output wire        sig_fall_L,
+    output wire [31:0] sig_time_R,
+    output wire        sig_rise_R,
+    output wire        sig_fall_R,
+
+    output wire [31:0] t_ltr,
+    output wire [31:0] t_rtl,
+    output wire [31:0] split_sync_time,
+    output wire        sync_start
+);
+
+    // Internal wires
+    wire sync_l;
+    wire sync_r;
+
+    wire sync_rising;
+
+    wire [31:0] lsync_rise_time;
+    wire [31:0] lsync_fall_time;
+    wire [31:0] rsync_rise_time;
+    wire [31:0] rsync_fall_time;
+
+    // === SYNC distributor ===
+    sync_distributor u_sync (
+        .sync_in      (lsync | rsync),  // Combined SYNC input if only one input is available
+        .sync_to_afll (sync_rising),
+        .sync_to_sig_timestamp (sync_start),
+        .sync_to_scan_dir (/* optionally connected elsewhere */)
+    );
+
+    // === SIG Timestamp Modules ===
+    sig_timestamp u_sig_L (
+        .clk        (clk),
+        .reset_n    (reset_n),
+        .sig_edge   (sig),
+        .sync_start (sync_start),
+        .sig_time   (sig_time_L),
+        .sig_rise   (sig_rise_L),
+        .sig_fall   (sig_fall_L)
+    );
+
+    sig_timestamp u_sig_R (
+        .clk        (clk),
+        .reset_n    (reset_n),
+        .sig_edge   (sig),
+        .sync_start (sync_start),
+        .sig_time   (sig_time_R),
+        .sig_rise   (sig_rise_R),
+        .sig_fall   (sig_fall_R)
+    );
+
+    // === Adaptive FLL ===
+    adaptive_fll u_afll (
+        .clk        (clk),
+        .reset_n    (reset_n),
+        .sync_start (sync_start),
+        .scan_dir   (dir),
+        .t_ltr      (t_ltr),
+        .t_rtl      (t_rtl)
+    );
+
+    // === Split Sync Predictor ===
+    split_sync_predictor u_split_sync (
+        .clk              (clk),
+        .reset_n          (reset_n),
+        .lsync_rise_time  (lsync_rise_time),   // placeholder for SYNC timestamp logic
+        .lsync_fall_time  (lsync_fall_time),
+        .rsync_rise_time  (rsync_rise_time),
+        .rsync_fall_time  (rsync_fall_time),
+        .scan_dir         (dir),
+        .sync_pulse       (sync_start),
+        .split_sync_time  (split_sync_time)
+    );
+
+endmodule

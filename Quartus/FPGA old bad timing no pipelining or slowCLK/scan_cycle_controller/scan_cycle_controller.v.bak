@@ -1,0 +1,72 @@
+module scan_cycle_controller (
+    input  wire clk,
+    input  wire reset_n,
+    input  wire sync_start,       // One pulse per scan
+    input  wire sig_l_detected,   // High for 1 cycle when SIG_L edge is seen
+    input  wire sig_r_detected,   // High for 1 cycle when SIG_R edge is seen
+
+    output reg dir,               // Scan direction: 0 = LTR, 1 = RTL
+    output reg sig_l_enable,      // High when waiting for SIG_L
+    output reg sig_r_enable       // High when waiting for SIG_R
+);
+
+    reg sync_prev = 0;
+    wire sync_rising = sync_start & ~sync_prev;
+
+    typedef enum logic [1:0] {
+        IDLE     = 2'd0,
+        WAIT_L   = 2'd1,
+        WAIT_R   = 2'd2,
+        COMPLETE = 2'd3
+    } state_t;
+
+    state_t state = IDLE;
+
+    always @(posedge clk) begin
+        if (!reset_n) begin
+            sync_prev <= 0;
+            dir <= 0;
+            state <= IDLE;
+            sig_l_enable <= 0;
+            sig_r_enable <= 0;
+        end else begin
+            sync_prev <= sync_start;
+
+            case (state)
+                IDLE: begin
+                    if (sync_rising) begin
+                        dir <= ~dir;       // Toggle scan direction
+                        sig_l_enable <= 1;
+                        sig_r_enable <= 0;
+                        state <= WAIT_L;
+                    end
+                end
+
+                WAIT_L: begin
+                    if (sig_l_detected) begin
+                        sig_l_enable <= 0;
+                        sig_r_enable <= 1;
+                        state <= WAIT_R;
+                    end
+                end
+
+                WAIT_R: begin
+                    if (sig_r_detected) begin
+                        sig_r_enable <= 0;
+                        state <= COMPLETE;
+                    end
+                end
+
+                COMPLETE: begin
+                    // Wait for next scan
+                    if (sync_rising) begin
+                        dir <= ~dir;
+                        sig_l_enable <= 1;
+                        sig_r_enable <= 0;
+                        state <= WAIT_L;
+                    end
+                end
+            endcase
+        end
+    end
+endmodule

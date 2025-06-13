@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="$${FILENAME}">
+ <component
+   name="$${FILENAME}"
+   displayName="$${FILENAME}"
+   version="1.0"
+   description=""
+   tags=""
+   categories="System" />
+ <parameter name="bonusData"><![CDATA[bonusData 
+{
+   element AFLL_0
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
+   element OVDP
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element OVDP
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element OVDP
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element OVDP
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element OVDP
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element OVDP
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element clk_0
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element demux_to_stereo_buffer_0
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
+   element extrapolation_buffer_0
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
+   element extrapolation_buffer_1
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+   }
+   element fir_compiler_ii_notchFilt
+   {
+      datum _sortIndex
+      {
+         value = "1";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element fir_stream_wrapper_0
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element fir_stream_wrapper_1
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element groove_sample_timestamp_0
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element groove_sample_timestamp_1
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element horizontal_pid_0
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+   element scan_cycle_controller_0
+   {
+      datum _sortIndex
+      {
+         value = "15";
+         type = "int";
+      }
+   }
+   element sig_timestamp_0
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+   element sig_timestamp_1
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
+   element spislave_0
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+   }
+   element sync_distro_0
+   {
+      datum _sortIndex
+      {
+         value = "8";
+         type = "int";
+      }
+   }
+}
+]]></parameter>
+ <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
+ <parameter name="device" value="10M50DAF484C7G" />
+ <parameter name="deviceFamily" value="MAX 10" />
+ <parameter name="deviceSpeedGrade" value="7" />
+ <parameter name="fabricMode" value="QSYS" />
+ <parameter name="generateLegacySim" value="false" />
+ <parameter name="generationId" value="0" />
+ <parameter name="globalResetBus" value="false" />
+ <parameter name="hdlLanguage" value="VERILOG" />
+ <parameter name="hideFromIPCatalog" value="false" />
+ <parameter name="lockedInterfaceDefinition" value="" />
+ <parameter name="maxAdditionalLatency" value="1" />
+ <parameter name="projectName" value="OVDP.qpf" />
+ <parameter name="sopcBorderPoints" value="false" />
+ <parameter name="systemHash" value="0" />
+ <parameter name="testBenchDutName" value="" />
+ <parameter name="timeStamp" value="0" />
+ <parameter name="useTestBenchNamingPattern" value="false" />
+ <instanceScript></instanceScript>
+ <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
+ <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
+ <module name="AFLL_0" kind="Adaptive_FLL" version="1.0" enabled="1">
+  <parameter name="THRESHOLD" value="5000" />
+ </module>
+ <module name="clk_0" kind="clock_source" version="20.1" enabled="1">
+  <parameter name="clockFrequency" value="50000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module
+   name="demux_to_stereo_buffer_0"
+   kind="demux_to_stereo_buffer"
+   version="1.0"
+   enabled="1" />
+ <module
+   name="extrapolation_buffer_0"
+   kind="extrapolation_buffer"
+   version="1.0"
+   enabled="1">
+  <parameter name="N" value="8" />
+ </module>
+ <module
+   name="extrapolation_buffer_1"
+   kind="extrapolation_buffer"
+   version="1.0"
+   enabled="1">
+  <parameter name="N" value="8" />
+ </module>
+ <module
+   name="fir_compiler_ii_notchFilt"
+   kind="altera_fir_compiler_ii"
+   version="20.1"
+   enabled="1">
+  <parameter name="L_bandsFilter" value="1" />
+  <parameter name="MODE_STRING" value="None Set" />
+  <parameter name="backPressure" value="false" />
+  <parameter name="bankCount" value="2" />
+  <parameter name="bankDisplay" value="0" />
+  <parameter name="baseAddress" value="0" />
+  <parameter name="channelModes" value="0,1,2,3" />
+  <parameter name="clockRate" value="100" />
+  <parameter name="clockSlack" value="0" />
+  <parameter name="coeffBitWidth" value="16" />
+  <parameter name="coeffComplex" value="false" />
+  <parameter name="coeffFracBitWidth" value="0" />
+  <parameter name="coeffReload" value="false" />
+  <parameter name="coeffScaling" value="auto" />
+  <parameter name="coeffSetRealValue">0.25,0.0,-0.25,-0.0,-0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-0.0,0.0,0.0,0.0;0.25,0.0,0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0</parameter>
+  <parameter name="coeffSetRealValueImag">0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.0530093, -0.04498, 0.0, 0.0749693, 0.159034, 0.224907, 0.249809, 0.224907, 0.159034, 0.0749693, 0.0, -0.04498, -0.0530093, -0.0321283, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0</parameter>
+  <parameter name="coeffType" value="int" />
+  <parameter name="decimFactor" value="1" />
+  <parameter name="delayRAMBlockThreshold" value="20" />
+  <parameter name="deviceFamily" value="MAX 10" />
+  <parameter name="dualMemDistRAMThreshold" value="1280" />
+  <parameter name="filterType" value="single" />
+  <parameter name="hardMultiplierThreshold" value="-1" />
+  <parameter name="inputBitWidth" value="16" />
+  <parameter name="inputChannelNum" value="1" />
+  <parameter name="inputFracBitWidth" value="0" />
+  <parameter name="inputRate" value="100" />
+  <parameter name="inputType" value="int" />
+  <parameter name="interpFactor" value="1" />
+  <parameter name="karatsuba" value="false" />
+  <parameter name="mRAMThreshold" value="1000000" />
+  <parameter name="num_modes" value="2" />
+  <parameter name="outLSBRound" value="trunc" />
+  <parameter name="outLsbBitRem" value="14" />
+  <parameter name="outMSBRound" value="trunc" />
+  <parameter name="outMsbBitRem" value="0" />
+  <parameter name="outType" value="int" />
+  <parameter name="readWriteMode" value="read_write" />
+  <parameter name="reconfigurable" value="false" />
+  <parameter name="reconfigurable_list" value="0" />
+  <parameter name="speedGrade" value="fast" />
+  <parameter name="symmetryMode" value="nsym" />
+ </module>
+ <module
+   name="fir_stream_wrapper_0"
+   kind="fir_stream_wrapper"
+   version="1.0"
+   enabled="1" />
+ <module
+   name="fir_stream_wrapper_1"
+   kind="fir_stream_wrapper"
+   version="1.0"
+   enabled="1" />
+ <module
+   name="groove_sample_timestamp_0"
+   kind="groove_sample_timestamp"
+   version="1.0"
+   enabled="1" />
+ <module
+   name="groove_sample_timestamp_1"
+   kind="groove_sample_timestamp"
+   version="1.0"
+   enabled="1" />
+ <module
+   name="horizontal_pid_0"
+   kind="horizontal_pid"
+   version="1.0"
+   enabled="1" />
+ <module
+   name="scan_cycle_controller_0"
+   kind="scan_cycle_controller"
+   version="1.0"
+   enabled="1">
+  <parameter name="COMPLETE" value="3" />
+  <parameter name="IDLE" value="0" />
+  <parameter name="WAIT_L" value="1" />
+  <parameter name="WAIT_R" value="2" />
+ </module>
+ <module name="sig_timestamp_0" kind="sig_timestamp" version="1.0" enabled="1" />
+ <module name="sig_timestamp_1" kind="sig_timestamp" version="1.0" enabled="1" />
+ <module name="spislave_0" kind="spislave" version="20.1" enabled="1">
+  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
+  <parameter name="SYNC_DEPTH" value="3" />
+ </module>
+ <module name="sync_distro_0" kind="sync_distro" version="1.0" enabled="1" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="fir_compiler_ii_notchFilt.clk" />
+ <connection kind="clock" version="20.1" start="clk_0.clk" end="AFLL_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="horizontal_pid_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="groove_sample_timestamp_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="sig_timestamp_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="extrapolation_buffer_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="sig_timestamp_1.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="fir_stream_wrapper_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="extrapolation_buffer_1.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="fir_stream_wrapper_1.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="groove_sample_timestamp_1.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="demux_to_stereo_buffer_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="scan_cycle_controller_0.clock" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="spislave_0.clock_sink" />
+ <connection
+   kind="conduit"
+   version="20.1"
+   start="extrapolation_buffer_0.sample_in"
+   end="groove_sample_timestamp_0.sample_out">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="20.1"
+   start="groove_sample_timestamp_0.sig_time"
+   end="sig_timestamp_0.sig_time">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="20.1"
+   start="AFLL_0.sync_start"
+   end="sync_distro_0.sync_to_afll">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="20.1"
+   start="sig_timestamp_0.sync_start"
+   end="sync_distro_0.sync_to_sig_timestamp">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="20.1"
+   start="AFLL_0.t_ltr"
+   end="groove_sample_timestamp_0.afl_ltr">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="20.1"
+   start="AFLL_0.t_rtl"
+   end="groove_sample_timestamp_0.afl_rtl">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="20.1"
+   start="extrapolation_buffer_0.valid_in"
+   end="groove_sample_timestamp_0.sample_valid">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="spislave_0.clock_sink_reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="horizontal_pid_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="AFLL_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="groove_sample_timestamp_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="sig_timestamp_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="extrapolation_buffer_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="fir_stream_wrapper_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="sig_timestamp_1.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="extrapolation_buffer_1.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="fir_stream_wrapper_1.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="groove_sample_timestamp_1.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="demux_to_stereo_buffer_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="scan_cycle_controller_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="fir_compiler_ii_notchFilt.rst" />
+ <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
+ <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
+ <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />
+ <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
+</system>

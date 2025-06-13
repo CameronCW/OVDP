@@ -1,0 +1,316 @@
+# Reading D:/QuartusInstall18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do OVDPFPGAtest_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# ** Error: Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# ** Error: (vmap-20) Cannot access for writing file "D:\QuartusInstall18.1\modelsim_ase\win32aloem".
+# Error in macro ./OVDPFPGAtest_run_msim_rtl_verilog.do line 6
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# ** Error: (vmap-20) Cannot access for writing file "D:\QuartusInstall18.1\modelsim_ase\win32aloem".
+#     while executing
+# "error [FixExecError $msg]"
+#     (procedure "vmap" line 29)
+#     invoked from within
+# "vmap work rtl_work"
+cd F:/Imperial/Desktop/OVDPFPGAtest 1/simulation/modelsim
+# wrong # args: should be "cd ?dirName?"
+ 
+# Clean start
+vdel -all
+vlib work
+vmap work work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work work 
+# ** Error: (vmap-20) Cannot access for writing file "D:\QuartusInstall18.1\modelsim_ase\win32aloem".
+ 
+# Compile all Verilog files (safe and complete)
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:27:54 on Jun 12,2025
+# vlog -reportprogress 300 AbsDiff.v afll.v groove_sample_selector.v preProcess_block.v scan_dir_tracker.v split_sync_predictor.v 
+# -- Compiling module AbsDiff
+# -- Compiling module afll
+# -- Compiling module groove_sample_selector
+# -- Compiling module preProcess_block
+# -- Compiling module scan_dir_tracker
+# -- Compiling module split_sync_predictor
+# 
+# Top level modules:
+# 	preProcess_block
+# End time: 23:27:54 on Jun 12,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+ 
+# Simulate top-level module
+vsim work.preProcess_block -novopt
+# vsim work.preProcess_block -novopt 
+# Start time: 23:27:54 on Jun 12,2025
+# Loading work.preProcess_block
+# Loading work.scan_dir_tracker
+# Loading work.afll
+# Loading work.split_sync_predictor
+# Loading work.groove_sample_selector
+# Loading work.AbsDiff
+ 
+# Restart and load waveforms
+restart -f
+add wave *
+ 
+# Optional: add internal debug signals
+# add wave sim:/preProcess_block/<your_instance>/split_sync_time
+ 
+# Force inputs
+force -drive sim:/preProcess_block/clk 0 0, 1 50 -repeat 100
+force -drive sim:/preProcess_block/reset_n 0 0, 1 200
+force -drive sim:/preProcess_block/lsync 1 0, 0 57030 -repeat 380200
+force -drive sim:/preProcess_block/rsync 0 0, 1 190100, 0 247130 -repeat 380200
+force -drive sim:/preProcess_block/sig 1 0, 0 21375 -repeat 47500
+ 
+run 30802us
+
+cd F:/Imperial/Desktop/OVDPFPGAtest 1/simulation/modelsim
+# wrong # args: should be "cd ?dirName?"
+ 
+# Clean start
+vdel -all
+vlib work
+vmap work work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work work 
+# ** Error: (vmap-20) Cannot access for writing file "D:\QuartusInstall18.1\modelsim_ase\win32aloem".
+ 
+# Compile all Verilog files (safe and complete)
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:28:52 on Jun 12,2025
+# vlog -reportprogress 300 AbsDiff.v afll.v groove_sample_selector.v preProcess_block.v scan_dir_tracker.v split_sync_predictor.v 
+# -- Compiling module AbsDiff
+# -- Compiling module afll
+# -- Compiling module groove_sample_selector
+# -- Compiling module preProcess_block
+# -- Compiling module scan_dir_tracker
+# -- Compiling module split_sync_predictor
+# 
+# Top level modules:
+# 	preProcess_block
+# End time: 23:28:52 on Jun 12,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+ 
+# Simulate top-level module
+vsim work.preProcess_block -novopt
+# End time: 23:28:52 on Jun 12,2025, Elapsed time: 0:00:58
+# Errors: 2, Warnings: 0
+# vsim work.preProcess_block -novopt 
+# Start time: 23:28:52 on Jun 12,2025
+# Loading work.preProcess_block
+# Loading work.scan_dir_tracker
+# Loading work.afll
+# Loading work.split_sync_predictor
+# Loading work.groove_sample_selector
+# Loading work.AbsDiff
+ 
+# Restart and load waveforms
+restart -f
+add wave *
+ 
+# Optional: add internal debug signals
+# add wave sim:/preProcess_block/<your_instance>/split_sync_time
+ 
+# Force inputs
+force -drive sim:/preProcess_block/clk 0 0, 1 50 -repeat 100
+force -drive sim:/preProcess_block/reset_n 0 0, 1 200
+force -drive sim:/preProcess_block/lsync 1 0, 0 57030 -repeat 380200
+force -drive sim:/preProcess_block/rsync 0 0, 1 190100, 0 247130 -repeat 380200
+force -drive sim:/preProcess_block/sig 1 0, 0 21375 -repeat 47500
+ 
+run 3080200us
+cd F:/Imperial/Desktop/OVDPFPGAtest 1/simulation/modelsim
+# wrong # args: should be "cd ?dirName?"
+ 
+# Clean start
+vdel -all
+vlib work
+vmap work work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work work 
+# ** Error: (vmap-20) Cannot access for writing file "D:\QuartusInstall18.1\modelsim_ase\win32aloem".
+ 
+# Compile all Verilog files (safe and complete)
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:50:15 on Jun 12,2025
+# vlog -reportprogress 300 AbsDiff.v afll.v groove_sample_selector.v preProcess_block.v scan_dir_tracker.v split_sync_predictor.v 
+# -- Compiling module AbsDiff
+# -- Compiling module afll
+# -- Compiling module groove_sample_selector
+# -- Compiling module preProcess_block
+# -- Compiling module scan_dir_tracker
+# -- Compiling module split_sync_predictor
+# 
+# Top level modules:
+# 	preProcess_block
+# End time: 23:50:15 on Jun 12,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+ 
+# Simulate top-level module
+vsim work.preProcess_block -novopt
+# End time: 23:50:16 on Jun 12,2025, Elapsed time: 0:21:24
+# Errors: 2, Warnings: 0
+# vsim work.preProcess_block -novopt 
+# Start time: 23:50:16 on Jun 12,2025
+# Loading work.preProcess_block
+# Loading work.scan_dir_tracker
+# Loading work.afll
+# Loading work.split_sync_predictor
+# Loading work.groove_sample_selector
+# Loading work.AbsDiff
+ 
+# Restart and load waveforms
+restart -f
+add wave *
+ 
+# Optional: add internal debug signals
+# add wave sim:/preProcess_block/<your_instance>/split_sync_time
+ 
+# Force inputs
+force -drive sim:/preProcess_block/clk 0 0, 1 50 -repeat 100
+force -drive sim:/preProcess_block/reset_n 0 0, 1 200
+force -drive sim:/preProcess_block/lsync 1 0, 0 57030 -repeat 380200
+force -drive sim:/preProcess_block/rsync 0 0, 1 190100, 0 247130 -repeat 380200
+force -drive sim:/preProcess_block/sig 1 0, 0 21375 -repeat 47500
+ 
+run 30802us
+
+cd F:/Imperial/Desktop/OVDPFPGAtest 1/simulation/modelsim
+# wrong # args: should be "cd ?dirName?"
+ 
+# Clean start
+vdel -all
+vlib work
+vmap work work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work work 
+# ** Error: (vmap-20) Cannot access for writing file "D:\QuartusInstall18.1\modelsim_ase\win32aloem".
+ 
+# Compile all Verilog files (safe and complete)
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:51:06 on Jun 12,2025
+# vlog -reportprogress 300 AbsDiff.v afll.v groove_sample_selector.v preProcess_block.v scan_dir_tracker.v split_sync_predictor.v 
+# -- Compiling module AbsDiff
+# -- Compiling module afll
+# -- Compiling module groove_sample_selector
+# -- Compiling module preProcess_block
+# -- Compiling module scan_dir_tracker
+# -- Compiling module split_sync_predictor
+# 
+# Top level modules:
+# 	preProcess_block
+# End time: 23:51:06 on Jun 12,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+ 
+# Simulate top-level module
+vsim work.preProcess_block -novopt
+# End time: 23:51:07 on Jun 12,2025, Elapsed time: 0:00:51
+# Errors: 2, Warnings: 0
+# vsim work.preProcess_block -novopt 
+# Start time: 23:51:07 on Jun 12,2025
+# Loading work.preProcess_block
+# Loading work.scan_dir_tracker
+# Loading work.afll
+# Loading work.split_sync_predictor
+# Loading work.groove_sample_selector
+# Loading work.AbsDiff
+ 
+# Restart and load waveforms
+restart -f
+add wave *
+ 
+# Optional: add internal debug signals
+# add wave sim:/preProcess_block/<your_instance>/split_sync_time
+ 
+# Force inputs
+force -drive sim:/preProcess_block/clk 0 0, 1 50 -repeat 100
+force -drive sim:/preProcess_block/reset_n 0 0, 1 200
+force -drive sim:/preProcess_block/lsync 1 0, 0 57030 -repeat 380200
+force -drive sim:/preProcess_block/rsync 0 0, 1 190100, 0 247130 -repeat 380200
+force -drive sim:/preProcess_block/sig 1 0, 0 21375 -repeat 47500
+ 
+run 30802us
+
+cd F:/Imperial/Desktop/OVDPFPGAtest 1/simulation/modelsim
+# wrong # args: should be "cd ?dirName?"
+ 
+# Clean start
+vdel -all
+vlib work
+vmap work work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work work 
+# ** Error: (vmap-20) Cannot access for writing file "D:\QuartusInstall18.1\modelsim_ase\win32aloem".
+ 
+# Compile all Verilog files (safe and complete)
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:26:12 on Jun 13,2025
+# vlog -reportprogress 300 AbsDiff.v afll.v groove_sample_selector.v preProcess_block.v scan_dir_tracker.v split_sync_predictor.v 
+# -- Compiling module AbsDiff
+# -- Compiling module afll
+# -- Compiling module groove_sample_selector
+# -- Compiling module preProcess_block
+# -- Compiling module scan_dir_tracker
+# -- Compiling module split_sync_predictor
+# 
+# Top level modules:
+# 	preProcess_block
+# End time: 00:26:12 on Jun 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+ 
+# Simulate top-level module
+vsim work.preProcess_block -novopt
+# End time: 00:26:12 on Jun 13,2025, Elapsed time: 0:35:05
+# Errors: 2, Warnings: 0
+# vsim work.preProcess_block -novopt 
+# Start time: 00:26:12 on Jun 13,2025
+# Loading work.preProcess_block
+# Loading work.scan_dir_tracker
+# Loading work.afll
+# Loading work.split_sync_predictor
+# Loading work.groove_sample_selector
+# Loading work.AbsDiff
+ 
+# Restart and load waveforms
+restart -f
+add wave *
+ 
+# Optional: add internal debug signals
+# add wave sim:/preProcess_block/<your_instance>/split_sync_time
+ 
+# Force inputs
+force -drive sim:/preProcess_block/clk 0 0, 1 50 -repeat 100
+force -drive sim:/preProcess_block/reset_n 0 0, 1 200
+force -drive sim:/preProcess_block/lsync 1 0, 0 57030 -repeat 380200
+force -drive sim:/preProcess_block/rsync 0 0, 1 190100, 0 247130 -repeat 380200
+force -drive sim:/preProcess_block/sig 1 0, 0 21375 -repeat 47500
+ 
+run 3080200us
+
+
+
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# End time: 04:11:57 on Jun 13,2025, Elapsed time: 3:45:45
+# Errors: 10, Warnings: 1

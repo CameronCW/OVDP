@@ -1,0 +1,21 @@
+	component OVDP is
+		port (
+			clk_clk                              : in    std_logic                    := 'X';             -- clk
+			i2s_tx_bclk_export                   : out   std_logic;                                       -- export
+			i2s_tx_lrclk_export                  : out   std_logic;                                       -- export
+			i2s_tx_sdata_export                  : out   std_logic;                                       -- export
+			pid_focus_pwm_out_export             : out   std_logic_vector(7 downto 0);                    -- export
+			preprocess_block_lsync_export        : in    std_logic                    := 'X';             -- export
+			preprocess_block_rsync_export        : in    std_logic                    := 'X';             -- export
+			preprocess_block_sig_export          : in    std_logic                    := 'X';             -- export
+			reset_reset_n                        : in    std_logic                    := 'X';             -- reset_n
+			spislave_avalon_streaming_sink_valid : in    std_logic                    := 'X';             -- valid
+			spislave_avalon_streaming_sink_data  : in    std_logic_vector(7 downto 0) := (others => 'X'); -- data
+			spislave_avalon_streaming_sink_ready : out   std_logic;                                       -- ready
+			spislave_export_mosi                 : in    std_logic                    := 'X';             -- mosi
+			spislave_export_nss                  : in    std_logic                    := 'X';             -- nss
+			spislave_export_miso                 : inout std_logic                    := 'X';             -- miso
+			spislave_export_sclk                 : in    std_logic                    := 'X'              -- sclk
+		);
+	end component OVDP;
+

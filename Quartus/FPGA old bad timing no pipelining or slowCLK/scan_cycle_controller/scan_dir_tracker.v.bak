@@ -1,0 +1,21 @@
+module scan_dir_tracker (
+    input wire clk,
+    input wire reset_n,
+    input wire sync_start,        // rising edge per scan
+    output reg dir                // 0 = LTR, 1 = RTL
+);
+
+    reg sync_prev = 0;
+    wire sync_rising = sync_start & ~sync_prev;
+
+    always @(posedge clk) begin
+        if (!reset_n) begin
+            dir <= 0;
+            sync_prev <= 0;
+        end else begin
+            sync_prev <= sync_start;
+            if (sync_rising)
+                dir <= ~dir;  // toggle on every sync
+        end
+    end
+endmodule

@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at extrapolation_buffer.v(3): object "N" differs only in case from object "n" in the same scope File: F:/Imperial/Desktop/OVDPFPGA/4ChannelProcessing/extrapolation_buffer/extrapolation_buffer.v Line: 3
+Warning (10268): Verilog HDL information at groove_sample_selector.v(81): always construct contains both blocking and non-blocking assignments File: F:/Imperial/Desktop/OVDPFPGA/2PreProcess/groove_sample_selector.v Line: 81
